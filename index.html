@@ -6,63 +6,101 @@
 <title>Abenezer</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,Helvetica,sans-serif;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto;
+}
 
 body{
-  background:black;
   display:flex;
   justify-content:center;
   align-items:center;
   height:100vh;
+  background:black;
   overflow:hidden;
 }
 
-/* STAR BACKGROUND */
-.stars{
+/* ===== SPACE BACKGROUND ===== */
+.space{
   position:fixed;
   width:100%;
   height:100%;
-  background:black;
+  background:radial-gradient(circle at center, #0b1a3a 0%, #000 70%);
   overflow:hidden;
-  z-index:-1;
+  z-index:-2;
 }
 
-.stars::after{
-  content:"";
+/* STARS */
+.star{
   position:absolute;
   width:2px;
   height:2px;
   background:white;
-  box-shadow:
-    50px 100px white,
-    150px 200px white,
-    300px 400px white,
-    500px 150px white,
-    700px 350px white,
-    900px 250px white;
-  animation: twinkle 5s infinite alternate;
+  border-radius:50%;
+  opacity:0.8;
+  animation: twinkle 4s infinite alternate;
 }
 
 @keyframes twinkle{
-  from{opacity:0.3;}
+  from{opacity:0.2;}
   to{opacity:1;}
 }
 
-/* PHONE FRAME */
+/* SHOOTING STAR */
+.shooting-star{
+  position:absolute;
+  width:120px;
+  height:2px;
+  background:linear-gradient(-45deg, white, transparent);
+  top:40%;
+  left:-150px;
+  animation: shoot 6s infinite;
+}
+
+@keyframes shoot{
+  0%{transform:translateX(0) translateY(0);}
+  100%{transform:translateX(1200px) translateY(200px);}
+}
+
+/* ===== PHONE FRAME ===== */
 .phone{
-  width:360px;
-  height:720px;
-  border-radius:40px;
-  background:#0b0f1c;
-  padding:30px 20px;
-  box-shadow:0 0 40px rgba(0,255,255,0.2);
+  width:375px;
+  height:750px;
+  border-radius:50px;
+  background:#0f172a;
+  box-shadow:0 0 60px rgba(0,255,255,0.15);
+  position:relative;
+  padding-top:60px;
+  overflow:hidden;
+}
+
+/* NOTCH */
+.notch{
+  position:absolute;
+  top:15px;
+  left:50%;
+  transform:translateX(-50%);
+  width:160px;
+  height:30px;
+  background:black;
+  border-radius:20px;
+}
+
+/* CONTENT */
+.content{
+  padding:20px;
+  height:100%;
   overflow-y:auto;
 }
 
+/* TITLE */
 .title{
   text-align:center;
   color:white;
-  font-size:20px;
+  font-size:22px;
+  font-weight:600;
   margin-bottom:20px;
 }
 
@@ -70,10 +108,11 @@ body{
 .grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
-  gap:18px;
+  gap:20px;
   text-align:center;
 }
 
+/* APP ICON */
 .app{
   display:flex;
   flex-direction:column;
@@ -84,48 +123,65 @@ body{
 }
 
 .icon{
-  width:60px;
-  height:60px;
-  border-radius:16px;
+  width:65px;
+  height:65px;
+  border-radius:18px;
   background:white;
   display:flex;
   justify-content:center;
   align-items:center;
+  font-size:24px;
   margin-bottom:6px;
-  font-size:22px;
   transition:0.3s;
 }
 
 .icon:hover{
-  transform:scale(1.1);
+  transform:scale(1.15);
 }
 
 /* FOOTER */
 .footer{
   margin-top:30px;
   text-align:center;
-  color:#aaa;
   font-size:12px;
+  color:#aaa;
 }
 </style>
 </head>
 
 <body>
 
-<div class="stars"></div>
+<div class="space"></div>
+<div class="shooting-star"></div>
+
+<script>
+/* GENERATE RANDOM STARS */
+for(let i=0;i<80;i++){
+  let star=document.createElement("div");
+  star.className="star";
+  star.style.top=Math.random()*100+"%";
+  star.style.left=Math.random()*100+"%";
+  star.style.animationDuration=(2+Math.random()*3)+"s";
+  document.querySelector(".space").appendChild(star);
+}
+</script>
 
 <div class="phone">
+
+<div class="notch"></div>
+
+<div class="content">
 
 <div class="title">Abenezer</div>
 
 <div class="grid">
 
-<a class="app" href="#about">
+<a class="app" href="#">
 <div class="icon">👤</div>
 About
 </a>
 
-<a class="app" href="#skills">
+<a class="app" href="#">
 <div class="icon">💡</div>
 Skills
 </a>
@@ -133,6 +189,11 @@ Skills
 <a class="app" href="https://abeni.itch.io/" target="_blank">
 <div class="icon">🎮</div>
 Games
+</a>
+
+<a class="app" href="#">
+<div class="icon">🛠</div>
+Tools
 </a>
 
 <a class="app" href="https://github.com/" target="_blank">
@@ -155,17 +216,13 @@ Web
 Python
 </a>
 
-<a class="app" href="#">
-<div class="icon">⚡</div>
-Projects
-</a>
-
 </div>
 
 <div class="footer">
-Build with ❤️ by Abenezer
+Build with ❤️ using code
 </div>
 
+</div>
 </div>
 
 </body>
