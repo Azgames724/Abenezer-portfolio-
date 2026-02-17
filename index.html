@@ -19,15 +19,13 @@
     --phone-w: 390px;
     --phone-h: 844px;
 }
-*{box-sizing:border-box}
+*{box-sizing:border-box;margin:0;padding:0}
 html,body{
     height:100%;
-    margin:0;
     font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     background: radial-gradient(1200px 800px at 50% 30%, #05203b 0%, #000 60%);
     color:var(--white);
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
+    overflow:hidden;
 }
 .wrap{
     min-height:100vh;
@@ -35,30 +33,19 @@ html,body{
     align-items:center;
     justify-content:center;
     padding:28px;
+    position:relative;
+    z-index:1;
 }
+
 /* STARFIELD */
-.space {
-    position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none;
-}
+.space { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
 .stars, .stars-2 { position:absolute; inset:0; }
-.stars .s, .stars-2 .s {
-    position:absolute;
-    border-radius:50%; background:#fff; transform: translateZ(0);
-}
+.stars .s, .stars-2 .s { position:absolute; border-radius:50%; background:#fff; transform: translateZ(0); }
 .stars .s { width:2px;height:2px; opacity:0.8;}
 .stars-2 .s { width:1.4px;height:1.4px; opacity:0.6; filter:blur(.2px);}
-.shoot {
-    position:absolute; width:160px;height:2px;
-    background:linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0));
-    top:18%; left:-300px; transform:rotate(-12deg); filter:blur(.5px);
-    z-index:1; animation: shoot 10s linear infinite; mix-blend-mode:screen;
-}
-@keyframes shoot {
-  0% { transform: translateX(0) translateY(0) rotate(-12deg); opacity:0; }
-  5% { opacity:1 }
-  40% { transform: translateX(1300px) translateY(300px) rotate(-12deg); opacity:0.0; }
-  100% { opacity:0; transform:translateX(0) translateY(0) rotate(-12deg); }
-}
+.shoot { position:absolute; width:160px;height:2px; background:linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0)); top:18%; left:-300px; transform:rotate(-12deg); filter:blur(.5px); z-index:1; animation: shoot 10s linear infinite; mix-blend-mode:screen;}
+@keyframes shoot { 0%{transform:translateX(0) translateY(0) rotate(-12deg); opacity:0} 5%{opacity:1} 40%{transform:translateX(1300px) translateY(300px) rotate(-12deg); opacity:0} 100%{opacity:0} }
+
 /* PHONE */
 .phone{
     width:var(--phone-w); height:var(--phone-h);
@@ -84,12 +71,16 @@ html,body{
     overflow:auto;
     -webkit-overflow-scrolling:touch;
     position:relative;
+    transition: filter 0.3s ease;
 }
+
+/* TITLE */
 .title{
     display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;
+    flex-direction:column;
 }
 .title h1{font-size:20px;margin:0;font-weight:700;letter-spacing:-0.2px;}
-.subtitle{ color:var(--muted); font-size:12px; margin-top:4px; text-align:center;}
+.subtitle{ color:var(--muted); font-size:12px; text-align:center; margin-top:4px;}
 
 /* GRID */
 .grid{
@@ -98,6 +89,7 @@ html,body{
     gap:18px;
     align-items:start;
     margin-top:8px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 .app{
     display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--white);
@@ -117,23 +109,28 @@ html,body{
 .icon:active{ transform:scale(.88);}
 .icon:hover{ transform:scale(1.08); box-shadow: 0 18px 30px rgba(0,0,0,0.6);}
 
-/* footer */
+/* FOOTER */
 .built{
     display:flex;align-items:center;justify-content:center;gap:8px;margin-top:26px;color:var(--muted);font-size:12px;
 }
 
 /* PANEL */
+.panel-overlay{
+    position:absolute; inset:0; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px); opacity:0; visibility:hidden; transition:opacity 0.3s ease; z-index:9;
+}
+.panel-overlay.show{opacity:1; visibility:visible;}
+
 .panel{
     position:absolute; left:50%; top:50%;
     width:calc(var(--phone-w) - 40px);
-    height:calc(var(--phone-h) - 120px);
+    max-height:calc(var(--phone-h) - 120px);
     transform:translate(-50%,-50%) scale(0.96);
     background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
     border-radius:22px;
     box-shadow: 0 40px 80px rgba(0,0,0,0.6);
     padding:18px;
     opacity:0; visibility:hidden; z-index:10;
-    transition: all 360ms cubic-bezier(.2,.9,.2,1);
+    transition: all 0.36s cubic-bezier(.2,.9,.2,1);
     overflow:auto; -webkit-overflow-scrolling:touch;
     border:1px solid rgba(255,255,255,0.03);
 }
@@ -147,6 +144,7 @@ html,body{
     border:1px solid rgba(255,255,255,0.03); cursor:pointer;
 }
 .panel .section{ margin-top:12px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.03);}
+
 @media(max-width:420px){
     :root{ --phone-w:360px; --phone-h:780px;}
     .icon{ --size:60px; border-radius:16px; }
@@ -167,60 +165,41 @@ html,body{
     <div class="notch"></div>
     <div class="screen">
       <div class="title">
-        <div style="text-align:center">
-          <h1>Abenezer</h1>
-          <div class="subtitle">Game Developer • Web Designer — Ethiopia</div>
-        </div>
+        <h1>Abenezer</h1>
+        <div class="subtitle">Game Developer • Web Designer — Ethiopia</div>
       </div>
 
       <div class="grid">
-        <!-- Real flat colored icons -->
         <a class="app" href="#" data-app="about">
-          <div class="icon">
-            <img src="https://img.icons8.com/color/48/000000/user-male-circle--v1.png" alt="About" width="40"/>
-          </div>
+          <div class="icon"><img src="https://img.icons8.com/color/48/000000/user-male-circle--v1.png" width="40"/></div>
           <div class="app-label">About</div>
         </a>
         <a class="app" href="#" data-app="skills">
-          <div class="icon">
-            <img src="https://img.icons8.com/color/48/000000/idea.png" alt="Skills" width="40"/>
-          </div>
+          <div class="icon"><img src="https://img.icons8.com/color/48/000000/idea.png" width="40"/></div>
           <div class="app-label">Skills</div>
         </a>
         <a class="app" href="https://abeni.itch.io/" target="_blank">
-          <div class="icon">
-            <img src="https://img.icons8.com/color/48/000000/game-controller.png" alt="Games" width="40"/>
-          </div>
+          <div class="icon"><img src="https://img.icons8.com/color/48/000000/game-controller.png" width="40"/></div>
           <div class="app-label">Games</div>
         </a>
         <a class="app" href="https://github.com/" target="_blank">
-          <div class="icon">
-            <img src="https://img.icons8.com/color/48/000000/github.png" alt="GitHub" width="40"/>
-          </div>
+          <div class="icon"><img src="https://img.icons8.com/color/48/000000/github.png" width="40"/></div>
           <div class="app-label">GitHub</div>
         </a>
         <a class="app" href="https://t.me/abeni501" target="_blank">
-          <div class="icon">
-            <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram" width="40"/>
-          </div>
+          <div class="icon"><img src="https://img.icons8.com/color/48/000000/telegram-app.png" width="40"/></div>
           <div class="app-label">Telegram</div>
         </a>
         <a class="app" href="#" data-app="web">
-          <div class="icon">
-            <img src="https://img.icons8.com/color/48/000000/internet--v1.png" alt="Web" width="40"/>
-          </div>
+          <div class="icon"><img src="https://img.icons8.com/color/48/000000/internet--v1.png" width="40"/></div>
           <div class="app-label">Web</div>
         </a>
         <a class="app" href="#" data-app="python">
-          <div class="icon">
-            <img src="https://img.icons8.com/color/48/000000/python--v1.png" alt="Python" width="40"/>
-          </div>
+          <div class="icon"><img src="https://img.icons8.com/color/48/000000/python--v1.png" width="40"/></div>
           <div class="app-label">Python</div>
         </a>
         <a class="app" href="#" data-app="projects">
-          <div class="icon">
-            <img src="https://img.icons8.com/color/48/000000/portfolio.png" alt="Projects" width="40"/>
-          </div>
+          <div class="icon"><img src="https://img.icons8.com/color/48/000000/portfolio.png" width="40"/></div>
           <div class="app-label">Projects</div>
         </a>
       </div>
@@ -234,6 +213,7 @@ html,body{
       </div>
     </div>
 
+    <div class="panel-overlay" id="overlay"></div>
     <div id="panel" class="panel">
       <div class="head">
         <h2 id="panel-title">Title</h2>
@@ -276,23 +256,37 @@ const appData = {
 };
 const grid=document.querySelector('.grid');
 const panel=document.getElementById('panel');
+const overlay=document.getElementById('overlay');
 const panelTitle=document.getElementById('panel-title');
 const panelContent=document.getElementById('panel-content');
 const closeBtn=document.getElementById('closeBtn');
+const screen=document.querySelector('.screen');
+
+function openPanel(data){
+  panelTitle.textContent=data.title;
+  panelContent.innerHTML=data.html;
+  panel.classList.add('show');
+  overlay.classList.add('show');
+  screen.style.filter='blur(6px)';
+}
+
+function closePanel(){
+  panel.classList.remove('show');
+  overlay.classList.remove('show');
+  screen.style.filter='none';
+}
 
 grid.addEventListener('click', e=>{
   const app=e.target.closest('.app'); if(!app) return;
   if(app.getAttribute('href') && app.getAttribute('target')) return;
   const key=app.dataset.app; if(!key) return;
   const data=appData[key] || {title:key, html:'<p style="color:var(--muted)">No content yet.</p>'};
-  panelTitle.textContent=data.title; panelContent.innerHTML=data.html; openPanel();
+  openPanel(data);
 });
-function openPanel(){ panel.classList.add('show'); panel.setAttribute('aria-hidden','false'); document.querySelector('.screen').style.overflow='hidden'; }
-function closePanel(){ panel.classList.remove('show'); panel.setAttribute('aria-hidden','true'); document.querySelector('.screen').style.overflow='auto'; }
-closeBtn.addEventListener('click', closePanel);
-document.addEventListener('click', e=>{ if(!panel.classList.contains('show')) return; if(e.target.closest('.panel')||e.target.closest('.app')) return; const phone=document.querySelector('.phone'); if(e.target.closest('.phone') && !e.target.closest('.panel')) closePanel();});
-document.addEventListener('keydown', e=>{if(e.key==='Escape'&&panel.classList.contains('show')) closePanel();});
-</script>
 
+closeBtn.addEventListener('click', closePanel);
+overlay.addEventListener('click', closePanel);
+document.addEventListener('keydown', e=>{if(e.key==='Escape') closePanel();});
+</script>
 </body>
 </html>
