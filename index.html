@@ -3,290 +3,588 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>Abenezer — Mobile Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<title>Abenezer — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-    --bg1: #071127;
-    --bg2: #05040a;
-    --glass: rgba(255,255,255,0.06);
-    --glass-2: rgba(255,255,255,0.08);
-    --accent: #00ffd0;
-    --accent-2: #00b3ff;
-    --muted: rgba(255,255,255,0.65);
-    --white: #ffffff;
-    --phone-w: 390px;
-    --phone-h: 844px;
-}
 *{box-sizing:border-box;margin:0;padding:0}
+
 html,body{
-    height:100%;
-    font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    background: radial-gradient(1200px 800px at 50% 30%, #05203b 0%, #000 60%);
-    color:var(--white);
-    overflow:hidden;
+  height:100%;
+  font-family:Inter,system-ui,-apple-system,sans-serif;
+  background:#000;
+  color:#fff;
+  overflow:hidden;
 }
+
+/* ── STAR FIELD ── */
+.space{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse 80% 60% at 50% 20%, #060d1f 0%,#000 70%);}
+.star{position:absolute;border-radius:50%;background:#fff;pointer-events:none;}
+.shoot{
+  position:absolute;width:160px;height:1.5px;
+  background:linear-gradient(90deg,rgba(0,200,255,0.9),transparent);
+  top:62%;left:-200px;transform:rotate(-22deg);
+  animation:shoot 12s linear infinite;
+  filter:blur(.3px);
+}
+@keyframes shoot{
+  0%{left:-200px;top:62%;opacity:0}
+  3%{opacity:1}
+  45%{left:110%;top:82%;opacity:0}
+  100%{opacity:0}
+}
+
+/* ── WRAP ── */
 .wrap{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:28px;
-    position:relative;
-    z-index:1;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:20px;
+  position:relative;z-index:2;
 }
 
-/* STARFIELD */
-.space { position:fixed; inset:0; z-index:0; overflow:hidden; pointer-events:none; }
-.stars, .stars-2 { position:absolute; inset:0; }
-.stars .s, .stars-2 .s { position:absolute; border-radius:50%; background:#fff; transform: translateZ(0); }
-.stars .s { width:2px;height:2px; opacity:0.8;}
-.stars-2 .s { width:1.4px;height:1.4px; opacity:0.6; filter:blur(.2px);}
-.shoot { position:absolute; width:160px;height:2px; background:linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0)); top:18%; left:-300px; transform:rotate(-12deg); filter:blur(.5px); z-index:1; animation: shoot 10s linear infinite; mix-blend-mode:screen;}
-@keyframes shoot { 0%{transform:translateX(0) translateY(0) rotate(-12deg); opacity:0} 5%{opacity:1} 40%{transform:translateX(1300px) translateY(300px) rotate(-12deg); opacity:0} 100%{opacity:0} }
-
-/* PHONE */
+/* ── PHONE SHELL ── */
 .phone{
-    width:var(--phone-w); height:var(--phone-h);
-    border-radius:48px;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    box-shadow: 0 30px 60px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
-    position:relative; z-index:2; overflow:hidden;
-    border:2px solid rgba(255,255,255,0.03);
-    display:flex; flex-direction:column;
+  --pw:340px;--ph:700px;
+  width:var(--pw);height:var(--ph);
+  position:relative;
+  /* Outer silver/blue ring - thick bezel like the real device */
+  border-radius:46px;
+  background:linear-gradient(145deg,#b8cfe8 0%,#7aa5c8 20%,#4d85b0 40%,#3a6e9a 60%,#5e94be 80%,#a0c3de 100%);
+  padding:3px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.15),
+    0 0 40px rgba(0,100,180,0.25),
+    0 40px 80px rgba(0,0,0,0.8),
+    inset 0 1px 0 rgba(255,255,255,0.3);
 }
+
+/* Side buttons */
 .phone::before{
-    content:''; position:absolute; inset:-6px; border-radius:56px;
-    background: linear-gradient(180deg, rgba(0,255,208,0.02), rgba(0,179,255,0.02));
-    z-index:-1; pointer-events:none;
+  content:'';
+  position:absolute;
+  right:-4px;top:120px;
+  width:4px;height:60px;border-radius:0 3px 3px 0;
+  background:linear-gradient(180deg,#7aa5c8,#4d85b0,#7aa5c8);
+  box-shadow:0 40px 0 0 #5e94be, 0 70px 0 0 #5e94be;
 }
+.phone::after{
+  content:'';
+  position:absolute;
+  left:-4px;top:100px;
+  width:4px;height:40px;border-radius:3px 0 0 3px;
+  background:linear-gradient(180deg,#7aa5c8,#4d85b0,#7aa5c8);
+  box-shadow:0 55px 0 0 #5e94be, 0 100px 0 0 #5e94be, -1px 100px 0 0 #4d85b0;
+}
+
+/* Inner black body */
+.phone-inner{
+  width:100%;height:100%;
+  border-radius:44px;
+  background:#0a0a14;
+  overflow:hidden;
+  position:relative;
+  display:flex;flex-direction:column;
+}
+
+/* Notch */
 .notch{
-    width:170px;height:36px;border-radius:20px;background:#000;position:absolute;left:50%;
-    transform:translateX(-50%);top:10px;z-index:5;box-shadow:0 2px 8px rgba(0,0,0,0.6);
+  position:absolute;
+  top:10px;left:50%;transform:translateX(-50%);
+  width:110px;height:26px;
+  background:#000;
+  border-radius:0 0 16px 16px;
+  z-index:10;
+  box-shadow:0 2px 8px rgba(0,0,0,0.8);
 }
+.notch::after{
+  content:'';
+  position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:10px;height:10px;border-radius:50%;
+  background:#1a1a1a;
+  box-shadow:0 0 6px rgba(0,0,0,0.8);
+}
+
+/* Screen */
 .screen{
-    padding:74px 20px 28px;
-    height:100%;
-    overflow:auto;
-    -webkit-overflow-scrolling:touch;
-    position:relative;
-    transition: filter 0.3s ease;
+  padding:48px 16px 20px;
+  height:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+  position:relative;
+  /* Space background inside screen */
+  background:radial-gradient(ellipse 100% 70% at 50% 10%, #060c1e 0%,#020208 60%,#000 100%);
+}
+.screen::-webkit-scrollbar{display:none}
+
+/* Stars inside screen */
+.screen-stars{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.screen-star{position:absolute;border-radius:50%;background:#fff;}
+
+/* Shooting star inside screen */
+.screen-shoot{
+  position:absolute;
+  width:80px;height:1px;
+  background:linear-gradient(90deg,rgba(0,200,255,0.8),transparent);
+  top:65%;left:-100px;
+  transform:rotate(-22deg);
+  animation:screenShoot 10s linear infinite 2s;
+  filter:blur(.2px);
+}
+@keyframes screenShoot{
+  0%{left:-100px;top:65%;opacity:0}
+  5%{opacity:1}
+  50%{left:110%;top:80%;opacity:0}
+  100%{opacity:0}
 }
 
-/* TITLE */
-.title{
-    display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:14px;
-    flex-direction:column;
-}
-.title h1{font-size:20px;margin:0;font-weight:700;letter-spacing:-0.2px;}
-.subtitle{ color:var(--muted); font-size:12px; text-align:center; margin-top:4px;}
-
-/* GRID */
+/* ── GRID ── */
 .grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
-    align-items:start;
-    margin-top:8px;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px 8px;
+  padding:0 2px;
+  position:relative;z-index:2;
 }
+
+/* App icon */
 .app{
-    display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--white);
-    --size:68px;
+  display:flex;flex-direction:column;align-items:center;
+  text-decoration:none;color:#fff;
+  cursor:pointer;
 }
 .icon{
-    width:var(--size); height:var(--size);
-    border-radius:18px;
-    display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-    box-shadow: 0 8px 18px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.02);
-    transition: transform .16s cubic-bezier(.2,.9,.2,1), box-shadow .16s;
-    backdrop-filter: blur(8px);
-    position:relative;
+  width:52px;height:52px;
+  border-radius:13px;
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  transition:transform .15s cubic-bezier(.2,.9,.2,1),box-shadow .15s;
+  overflow:hidden;
 }
-.app-label{ margin-top:8px; font-size:11px; color:var(--muted); text-align:center; max-width:78px; }
-.icon:active{ transform:scale(.88);}
-.icon:hover{ transform:scale(1.08); box-shadow: 0 18px 30px rgba(0,0,0,0.6);}
+.icon img{width:100%;height:100%;object-fit:cover;border-radius:13px;display:block;}
+.icon-fallback{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  border-radius:13px;
+  font-size:22px;
+}
+.app:active .icon{transform:scale(.88);}
+.app:hover .icon{transform:scale(1.05);box-shadow:0 8px 20px rgba(0,0,0,0.5);}
+.app-label{
+  margin-top:5px;
+  font-size:9.5px;
+  color:rgba(255,255,255,0.85);
+  text-align:center;
+  max-width:58px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  font-weight:400;
+  text-shadow:0 1px 3px rgba(0,0,0,0.8);
+}
 
-/* FOOTER */
+/* ── FOOTER ── */
 .built{
-    display:flex;align-items:center;justify-content:center;gap:8px;margin-top:26px;color:var(--muted);font-size:12px;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  margin-top:20px;margin-bottom:4px;
+  color:rgba(255,255,255,0.6);font-size:11px;
+  position:relative;z-index:2;
+}
+.flutter-icon{font-size:14px;}
+.heart{color:#2196F3;font-size:12px;}
+
+/* ── HOME BAR ── */
+.home-bar{
+  position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  width:110px;height:4px;background:rgba(255,255,255,0.25);border-radius:2px;
+  z-index:10;
 }
 
-/* PANEL */
+/* ── PANEL / MODAL ── */
 .panel-overlay{
-    position:absolute; inset:0; background:rgba(0,0,0,0.35); backdrop-filter:blur(4px); opacity:0; visibility:hidden; transition:opacity 0.3s ease; z-index:9;
+  position:absolute;inset:0;background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  opacity:0;visibility:hidden;transition:opacity .3s;z-index:20;
+  border-radius:44px;
 }
-.panel-overlay.show{opacity:1; visibility:visible;}
+.panel-overlay.show{opacity:1;visibility:visible;}
 
 .panel{
-    position:absolute; left:50%; top:50%;
-    width:calc(var(--phone-w) - 40px);
-    max-height:calc(var(--phone-h) - 120px);
-    transform:translate(-50%,-50%) scale(0.96);
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    border-radius:22px;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-    padding:18px;
-    opacity:0; visibility:hidden; z-index:10;
-    transition: all 0.36s cubic-bezier(.2,.9,.2,1);
-    overflow:auto; -webkit-overflow-scrolling:touch;
-    border:1px solid rgba(255,255,255,0.03);
+  position:absolute;left:50%;top:50%;
+  width:calc(100% - 32px);
+  max-height:calc(100% - 80px);
+  transform:translate(-50%,-50%) scale(.94);
+  background:linear-gradient(180deg,#0e1525,#090d1a);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:22px;
+  padding:18px;
+  opacity:0;visibility:hidden;z-index:21;
+  transition:all .32s cubic-bezier(.2,.9,.2,1);
+  overflow-y:auto;scrollbar-width:none;
+  box-shadow:0 30px 60px rgba(0,0,0,0.7);
 }
-.panel.show{ opacity:1; visibility:visible; transform:translate(-50%,-50%) scale(1); }
-.panel .head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px;}
-.panel h2{ margin:0; font-size:18px;}
-.panel p{ color:var(--muted); font-size:14px; line-height:1.5;}
-.close-btn{
-    width:40px;height:40px;border-radius:10px;background:var(--glass-2);
-    display:flex;align-items:center;justify-content:center;
-    border:1px solid rgba(255,255,255,0.03); cursor:pointer;
-}
-.panel .section{ margin-top:12px; padding-top:8px; border-top:1px dashed rgba(255,255,255,0.03);}
+.panel.show{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1);}
+.panel::-webkit-scrollbar{display:none}
 
-@media(max-width:420px){
-    :root{ --phone-w:360px; --phone-h:780px;}
-    .icon{ --size:60px; border-radius:16px; }
-    .grid{gap:14px}
+.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.panel-head h2{font-size:17px;font-weight:600;}
+.close-btn{
+  width:30px;height:30px;border-radius:8px;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.06);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:background .15s;flex-shrink:0;
 }
+.close-btn:hover{background:rgba(255,255,255,0.14);}
+.panel-body{color:rgba(255,255,255,0.72);font-size:13.5px;line-height:1.6;}
+.panel-body p{margin-bottom:10px;}
+.panel-body ul{padding-left:16px;margin-bottom:10px;}
+.panel-body li{margin-bottom:4px;}
+.panel-body a{color:#5dc0ff;text-decoration:none;}
+.panel-body a:hover{text-decoration:underline;}
+.tag{display:inline-block;padding:2px 8px;border-radius:20px;background:rgba(255,255,255,0.08);font-size:11px;margin:2px;color:rgba(255,255,255,0.7);}
+.section-title{font-size:12px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:.08em;margin:12px 0 6px;}
+.skill-bar{height:4px;background:rgba(255,255,255,0.08);border-radius:2px;margin-bottom:8px;overflow:hidden;}
+.skill-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#00c6ff,#5dc0ff);}
+
+/* Scrollbar in panel */
 </style>
 </head>
 <body>
 
-<div class="space">
-  <div class="stars"></div>
-  <div class="stars-2"></div>
+<!-- Space background -->
+<div class="space" id="bgSpace">
   <div class="shoot"></div>
 </div>
 
 <div class="wrap">
-  <div class="phone">
+<div class="phone">
+  <div class="phone-inner">
     <div class="notch"></div>
-    <div class="screen">
-      <div class="title">
-        <h1>Abenezer</h1>
-        <div class="subtitle">Game Developer • Web Designer — Ethiopia</div>
-      </div>
+    <div class="screen" id="mainScreen">
+      <div class="screen-stars" id="screenStars"></div>
+      <div class="screen-shoot"></div>
 
-      <div class="grid">
-        <a class="app" href="#" data-app="about">
-          <div class="icon"><img src="https://img.icons8.com/color/48/000000/user-male-circle--v1.png" width="40"/></div>
+      <div class="grid" id="appGrid">
+
+        <!-- Row 1: Portfolio sections -->
+        <a class="app" data-app="about">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/user-male-circle.png" alt="About" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#e8f4f8">👤</div></div>
           <div class="app-label">About</div>
         </a>
-        <a class="app" href="#" data-app="skills">
-          <div class="icon"><img src="https://img.icons8.com/color/48/000000/idea.png" width="40"/></div>
+        <a class="app" data-app="skills">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/idea.png" alt="Skills" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#fff9e6">💡</div></div>
           <div class="app-label">Skills</div>
         </a>
-        <a class="app" href="https://abeni.itch.io/" target="_blank">
-          <div class="icon"><img src="https://img.icons8.com/color/48/000000/game-controller.png" width="40"/></div>
-          <div class="app-label">Games</div>
-        </a>
-        <a class="app" href="https://github.com/" target="_blank">
-          <div class="icon"><img src="https://img.icons8.com/color/48/000000/github.png" width="40"/></div>
-          <div class="app-label">GitHub</div>
-        </a>
-        <a class="app" href="https://t.me/abeni501" target="_blank">
-          <div class="icon"><img src="https://img.icons8.com/color/48/000000/telegram-app.png" width="40"/></div>
-          <div class="app-label">Telegram</div>
-        </a>
-        <a class="app" href="#" data-app="web">
-          <div class="icon"><img src="https://img.icons8.com/color/48/000000/internet--v1.png" width="40"/></div>
-          <div class="app-label">Web</div>
-        </a>
-        <a class="app" href="#" data-app="python">
-          <div class="icon"><img src="https://img.icons8.com/color/48/000000/python--v1.png" width="40"/></div>
-          <div class="app-label">Python</div>
-        </a>
-        <a class="app" href="#" data-app="projects">
-          <div class="icon"><img src="https://img.icons8.com/color/48/000000/portfolio.png" width="40"/></div>
+        <a class="app" data-app="projects">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/grid.png" alt="Projects" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#e6f0ff">📱</div></div>
           <div class="app-label">Projects</div>
         </a>
-      </div>
+        <a class="app" data-app="tools">
+          <div class="icon" style="background:#1565C0"><img src="https://img.icons8.com/fluency/96/source-code.png" alt="Tools" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#1565C0">⌨️</div></div>
+          <div class="app-label">Tools</div>
+        </a>
+        <a class="app" href="https://github.com/" target="_blank">
+          <div class="icon" style="background:#fff"><img src="https://img.icons8.com/ios-filled/96/000000/github.png" alt="GitHub" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#fff">🐙</div></div>
+          <div class="app-label">Github</div>
+        </a>
+
+        <!-- Row 2: Social / misc -->
+        <a class="app" data-app="experience">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/prize.png" alt="Experience" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#fff8e1">🏆</div></div>
+          <div class="app-label">Experience</div>
+        </a>
+        <a class="app" href="https://play.google.com/store" target="_blank">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/google-play.png" alt="Play Store" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#fff">▶️</div></div>
+          <div class="app-label">Play Store</div>
+        </a>
+        <a class="app" href="https://linkedin.com" target="_blank">
+          <div class="icon" style="background:#0077B5"><img src="https://img.icons8.com/fluency/96/linkedin.png" alt="LinkedIn" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#0077B5;color:#fff">in</div></div>
+          <div class="app-label">Linkedin</div>
+        </a>
+        <a class="app" href="https://x.com" target="_blank">
+          <div class="icon" style="background:#000;border:1px solid rgba(255,255,255,0.2)">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.854-8.168-10.646h7.013l4.259 5.625L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </div>
+          <div class="app-label">X</div>
+        </a>
+        <a class="app" href="https://wa.me/" target="_blank">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/whatsapp.png" alt="WhatsApp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#25D366">💬</div></div>
+          <div class="app-label">WhatsApp</div>
+        </a>
+
+        <!-- Row 3: More apps -->
+        <a class="app" href="https://t.me/" target="_blank">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/telegram-app.png" alt="Telegram" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#2AABEE">✈️</div></div>
+          <div class="app-label">Telegram</div>
+        </a>
+        <a class="app" href="https://medium.com" target="_blank">
+          <div class="icon" style="background:#000;border:1px solid rgba(255,255,255,0.12)">
+            <svg width="32" height="32" viewBox="0 0 24 24"><ellipse cx="7" cy="12" rx="5.5" ry="6" fill="#fff"/><ellipse cx="17.5" cy="12" rx="3" ry="5.5" fill="#fff"/><ellipse cx="23" cy="12" rx="1.2" ry="5" fill="#fff"/></svg>
+          </div>
+          <div class="app-label">Medium</div>
+        </a>
+        <a class="app" href="https://youtube.com" target="_blank">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/youtube-play.png" alt="YouTube" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#FF0000">▶️</div></div>
+          <div class="app-label">Youtube</div>
+        </a>
+        <a class="app" data-app="password">
+          <div class="icon"><img src="https://img.icons8.com/fluency/96/person-male.png" alt="Password" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#f3e5f5">🔑</div></div>
+          <div class="app-label">Password</div>
+        </a>
+        <a class="app" data-app="tictactoe">
+          <div class="icon" style="background:#fff;padding:4px">
+            <svg width="36" height="36" viewBox="0 0 36 36">
+              <line x1="12" y1="2" x2="12" y2="34" stroke="#FF5722" stroke-width="2.5"/>
+              <line x1="24" y1="2" x2="24" y2="34" stroke="#FF5722" stroke-width="2.5"/>
+              <line x1="2" y1="12" x2="34" y2="12" stroke="#FF5722" stroke-width="2.5"/>
+              <line x1="2" y1="24" x2="34" y2="24" stroke="#FF5722" stroke-width="2.5"/>
+              <text x="5.5" y="11" font-size="7" fill="#F9A825" font-weight="bold">X</text>
+              <text x="17" y="11" font-size="7" fill="#1E88E5" font-weight="bold">O</text>
+              <text x="5.5" y="23" font-size="7" fill="#1E88E5" font-weight="bold">O</text>
+              <text x="17" y="23" font-size="7" fill="#F9A825" font-weight="bold">X</text>
+              <text x="29" y="23" font-size="7" fill="#F9A825" font-weight="bold">X</text>
+            </svg>
+          </div>
+          <div class="app-label">Tic Tac Toe</div>
+        </a>
+
+        <!-- Row 4 -->
+        <a class="app" data-app="snake">
+          <div class="icon" style="background:#2E7D32"><img src="https://img.icons8.com/fluency/96/snake.png" alt="Snake" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/><div class="icon-fallback" style="display:none;background:#2E7D32">🐍</div></div>
+          <div class="app-label">Snake Game</div>
+        </a>
+        <a class="app" data-app="device">
+          <div class="icon" style="background:#000;border:1px solid rgba(255,255,255,0.12)">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+          </div>
+          <div class="app-label">Device</div>
+        </a>
+
+      </div><!-- /grid -->
 
       <div class="built">
-        <div>Built with</div>
-        <svg width="18" height="18" viewBox="0 0 24 24" style="filter:drop-shadow(0 1px 0 rgba(0,0,0,0.2));">
-          <path d="M12 21s-8-4.8-8-10a5 5 0 0 1 10 0 5 5 0 0 1 10 0c0 5.2-8 10-8 10z" fill="#ff6b81"></path>
-        </svg>
-        <div style="color:var(--muted)">by Abenezer</div>
+        <span>Build With</span>
+        <span class="flutter-icon">⚡</span>
+        <span>Using</span>
+        <span class="heart">💙</span>
       </div>
-    </div>
+    </div><!-- /screen -->
 
+    <!-- Panel overlay -->
     <div class="panel-overlay" id="overlay"></div>
-    <div id="panel" class="panel">
-      <div class="head">
-        <h2 id="panel-title">Title</h2>
+
+    <!-- Panel -->
+    <div class="panel" id="panel">
+      <div class="panel-head">
+        <h2 id="panelTitle"></h2>
         <div class="close-btn" id="closeBtn">
-          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
         </div>
       </div>
-      <div id="panel-content"></div>
+      <div class="panel-body" id="panelBody"></div>
     </div>
 
-  </div>
-</div>
+    <div class="home-bar"></div>
+  </div><!-- /phone-inner -->
+</div><!-- /phone -->
+</div><!-- /wrap -->
 
 <script>
-/* Stars generation */
-(function makeStars(){
-  const s = document.querySelector('.stars');
-  const s2 = document.querySelector('.stars-2');
-  for(let i=0;i<110;i++){
-    const d = document.createElement('div');
-    d.className='s'; d.style.left = Math.random()*100+'%'; d.style.top = Math.random()*100+'%';
-    d.style.opacity = (0.2 + Math.random()*0.9).toFixed(2); d.style.transform = 'scale('+ (0.5+Math.random()*1.6) +')';
-    s.appendChild(d);
-  }
-  for(let i=0;i<90;i++){
-    const d = document.createElement('div'); d.className='s';
-    d.style.left = Math.random()*100+'%'; d.style.top = Math.random()*100+'%';
-    d.style.opacity = (0.1 + Math.random()*0.6).toFixed(2); d.style.transform = 'scale('+ (0.4+Math.random()*1.2) +')';
-    s2.appendChild(d);
+/* ── Background stars ── */
+(function(){
+  const bg = document.getElementById('bgSpace');
+  for(let i=0;i<180;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const sz=(Math.random()*2.2+0.4).toFixed(1);
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${(Math.random()*100).toFixed(2)}%;top:${(Math.random()*100).toFixed(2)}%;opacity:${(0.2+Math.random()*0.8).toFixed(2)}`;
+    if(Math.random()>0.6){s.style.animation=`blink ${(2+Math.random()*4).toFixed(1)}s ease-in-out ${(Math.random()*5).toFixed(1)}s infinite`;}
+    bg.appendChild(s);
   }
 })();
 
-/* Panel content */
-const appData = {
-  about: {title:'About', html:`<p>Hello, I'm Abenezer, a game developer & web designer from Ethiopia.</p>`},
-  skills:{title:'Skills', html:`<p>Python, GDScript, HTML, CSS, Game & Web Design.</p>`},
-  web:{title:'Web', html:`<p>Responsive websites & mini-apps.</p>`},
-  python:{title:'Python', html:`<p>Automation & scripts projects.</p>`},
-  projects:{title:'Projects', html:`<p>See my Itch games: <a href="https://abeni.itch.io/" target="_blank">abeni.itch.io</a></p>`}
-};
-const grid=document.querySelector('.grid');
-const panel=document.getElementById('panel');
-const overlay=document.getElementById('overlay');
-const panelTitle=document.getElementById('panel-title');
-const panelContent=document.getElementById('panel-content');
-const closeBtn=document.getElementById('closeBtn');
-const screen=document.querySelector('.screen');
+/* ── Screen stars ── */
+(function(){
+  const sc=document.getElementById('screenStars');
+  for(let i=0;i<80;i++){
+    const s=document.createElement('div');
+    s.className='screen-star';
+    const sz=(Math.random()*1.6+0.3).toFixed(1);
+    s.style.cssText=`width:${sz}px;height:${sz}px;left:${(Math.random()*100).toFixed(2)}%;top:${(Math.random()*100).toFixed(2)}%;opacity:${(0.15+Math.random()*0.7).toFixed(2)}`;
+    if(Math.random()>0.5){s.style.animation=`blink ${(2+Math.random()*4).toFixed(1)}s ease-in-out ${(Math.random()*4).toFixed(1)}s infinite`;}
+    sc.appendChild(s);
+  }
+})();
 
-function openPanel(data){
-  panelTitle.textContent=data.title;
-  panelContent.innerHTML=data.html;
+/* ── Panel data ── */
+const panels={
+  about:{
+    title:'About Me',
+    html:`
+      <p>Hi, I'm <strong style="color:#fff">Abenezer</strong> — a passionate Game Developer & Web Designer based in Ethiopia 🇪🇹.</p>
+      <p>I love crafting interactive experiences, building web apps, and bringing ideas to life through code.</p>
+      <div class="section-title">Contact</div>
+      <p>📧 abenezer@email.com</p>
+    `
+  },
+  skills:{
+    title:'Skills',
+    html:`
+      <div class="section-title">Languages & Frameworks</div>
+      <div><span class="tag">Python</span><span class="tag">GDScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Dart / Flutter</span></div>
+      <div class="section-title">Design</div>
+      <div><span class="tag">UI/UX</span><span class="tag">Figma</span><span class="tag">Game Design</span><span class="tag">Web Design</span></div>
+      <div class="section-title">Tools</div>
+      <div><span class="tag">Godot Engine</span><span class="tag">VS Code</span><span class="tag">Git</span><span class="tag">Android Studio</span></div>
+    `
+  },
+  projects:{
+    title:'Projects',
+    html:`
+      <p>Here are some of my featured projects:</p>
+      <div class="section-title">Games</div>
+      <p>🎮 <a href="https://abeni.itch.io/" target="_blank">itch.io games</a> — indie games built with Godot Engine.</p>
+      <div class="section-title">Web</div>
+      <p>🌐 Responsive websites, mini-tools and interactive pages.</p>
+      <div class="section-title">Mobile</div>
+      <p>📱 Flutter apps on the Play Store.</p>
+    `
+  },
+  tools:{
+    title:'Tools & IDE',
+    html:`
+      <div><span class="tag">VS Code</span><span class="tag">Godot 4</span><span class="tag">Android Studio</span><span class="tag">Figma</span><span class="tag">Git & GitHub</span><span class="tag">Terminal</span><span class="tag">Postman</span></div>
+    `
+  },
+  experience:{
+    title:'Experience',
+    html:`
+      <div class="section-title">Game Development</div>
+      <p>🎮 Built and published multiple games on itch.io using Godot Engine & GDScript.</p>
+      <div class="section-title">Web Development</div>
+      <p>🌐 Designed and developed responsive websites and mini-apps using HTML, CSS, and JavaScript.</p>
+      <div class="section-title">Mobile</div>
+      <p>📱 Flutter/Dart mobile apps targeting Android.</p>
+    `
+  },
+  password:{
+    title:'Password',
+    html:`<p>🔐 This app requires authentication to access.</p>`
+  },
+  tictactoe:{
+    title:'Tic Tac Toe',
+    html:`
+      <p style="text-align:center;margin-bottom:12px;font-size:12px;color:rgba(255,255,255,0.5)">Tap a cell to play!</p>
+      <div id="ttt" style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:180px;margin:0 auto"></div>
+      <p id="ttt-msg" style="text-align:center;margin-top:12px;font-size:13px;"></p>
+      <button onclick="resetTTT()" style="display:block;margin:10px auto 0;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:#fff;padding:6px 20px;border-radius:8px;cursor:pointer;font-size:12px;">Reset</button>
+    `
+  },
+  snake:{
+    title:'Snake Game',
+    html:`<p>🐍 A classic snake game — built with Godot. <a href="https://abeni.itch.io/" target="_blank">Play on itch.io →</a></p>`
+  },
+  device:{
+    title:'Device Info',
+    html:`<div id="devInfo">Loading…</div>`
+  }
+};
+
+/* ── Panel logic ── */
+const overlay=document.getElementById('overlay');
+const panel=document.getElementById('panel');
+const panelTitle=document.getElementById('panelTitle');
+const panelBody=document.getElementById('panelBody');
+const closeBtn=document.getElementById('closeBtn');
+
+function openPanel(key){
+  const d=panels[key]||{title:key,html:'<p>Coming soon…</p>'};
+  panelTitle.textContent=d.title;
+  panelBody.innerHTML=d.html;
   panel.classList.add('show');
   overlay.classList.add('show');
-  screen.style.filter='blur(6px)';
+  if(key==='tictactoe') initTTT();
+  if(key==='device') loadDevice();
 }
-
 function closePanel(){
   panel.classList.remove('show');
   overlay.classList.remove('show');
-  screen.style.filter='none';
 }
 
-grid.addEventListener('click', e=>{
-  const app=e.target.closest('.app'); if(!app) return;
-  if(app.getAttribute('href') && app.getAttribute('target')) return;
-  const key=app.dataset.app; if(!key) return;
-  const data=appData[key] || {title:key, html:'<p style="color:var(--muted)">No content yet.</p>'};
-  openPanel(data);
+document.getElementById('appGrid').addEventListener('click',e=>{
+  const app=e.target.closest('.app');
+  if(!app) return;
+  if(app.getAttribute('target')) return;
+  e.preventDefault();
+  const key=app.dataset.app;
+  if(key) openPanel(key);
 });
+closeBtn.addEventListener('click',closePanel);
+overlay.addEventListener('click',closePanel);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePanel();});
 
-closeBtn.addEventListener('click', closePanel);
-overlay.addEventListener('click', closePanel);
-document.addEventListener('keydown', e=>{if(e.key==='Escape') closePanel();});
+/* ── Tic Tac Toe ── */
+let tttBoard,tttTurn,tttOver;
+function initTTT(){
+  tttBoard=Array(9).fill('');tttTurn='X';tttOver=false;
+  const g=document.getElementById('ttt');
+  if(!g) return;
+  g.innerHTML='';
+  for(let i=0;i<9;i++){
+    const c=document.createElement('div');
+    c.style.cssText='height:52px;background:rgba(255,255,255,0.07);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:700;cursor:pointer;transition:.1s';
+    c.onclick=()=>tttClick(i);
+    g.appendChild(c);
+  }
+  const msg=document.getElementById('ttt-msg');
+  if(msg) msg.textContent="X's turn";
+}
+function tttClick(i){
+  if(tttOver||tttBoard[i]) return;
+  tttBoard[i]=tttTurn;
+  const cells=document.getElementById('ttt').children;
+  cells[i].textContent=tttTurn;
+  cells[i].style.color=tttTurn==='X'?'#FF5722':'#2196F3';
+  const w=checkWin();
+  const msg=document.getElementById('ttt-msg');
+  if(w){tttOver=true;msg.textContent=`${w} wins! 🎉`;}
+  else if(!tttBoard.includes('')){tttOver=true;msg.textContent="Draw!";}
+  else{tttTurn=tttTurn==='X'?'O':'X';if(msg)msg.textContent=`${tttTurn}'s turn`;}
+}
+function checkWin(){
+  const wins=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  for(const[a,b,c] of wins) if(tttBoard[a]&&tttBoard[a]===tttBoard[b]&&tttBoard[a]===tttBoard[c]) return tttBoard[a];
+  return null;
+}
+window.resetTTT=initTTT;
+
+/* ── Device Info ── */
+function loadDevice(){
+  const el=document.getElementById('devInfo');
+  if(!el) return;
+  const ua=navigator.userAgent;
+  const w=screen.width,h=screen.height;
+  const lang=navigator.language;
+  const tz=Intl.DateTimeFormat().resolvedOptions().timeZone;
+  el.innerHTML=`
+    <div class="section-title">Display</div>
+    <p>Resolution: ${w} × ${h}</p>
+    <p>Pixel ratio: ${window.devicePixelRatio}</p>
+    <div class="section-title">System</div>
+    <p>Language: ${lang}</p>
+    <p>Timezone: ${tz}</p>
+    <p>Cores: ${navigator.hardwareConcurrency||'?'}</p>
+    <div class="section-title">Browser</div>
+    <p style="font-size:11px;word-break:break-all">${ua}</p>
+  `;
+}
 </script>
+
+<style>
+@keyframes blink{0%,100%{opacity:.2}50%{opacity:1}}
+</style>
+
 </body>
 </html>
