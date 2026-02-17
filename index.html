@@ -3,12 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<title>Abenezer — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet">
+<title>Abenezer Shiferaw — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ── RESET ── */
 *{box-sizing:border-box;margin:0;padding:0;-webkit-font-smoothing:antialiased;}
-
 html,body{
   height:100%;min-height:100vh;
   font-family:'Inter',system-ui,sans-serif;
@@ -17,627 +15,231 @@ html,body{
   overflow:hidden;
 }
 
-/* ════════════════════════════════
-   SPACE BACKGROUND
-════════════════════════════════ */
-.space{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse 100% 60% at 50% 0%,#04102a 0%,#000 65%);
-}
+/* SPACE BG */
+.space{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 60% at 50% 0%,#04102a 0%,#000 65%);}
 .star{position:absolute;border-radius:50%;background:#fff;will-change:opacity;}
-
-.bg-shoot{
-  position:absolute;width:220px;height:1.5px;
-  background:linear-gradient(90deg,rgba(120,200,255,.95),transparent);
-  top:22%;left:-240px;transform:rotate(-14deg);filter:blur(.4px);
-  animation:bgShoot 18s linear infinite 1s;
-}
-@keyframes bgShoot{
-  0%{left:-240px;opacity:0}
-  3%{opacity:1}
-  48%{left:110vw;opacity:0}
-  100%{opacity:0}
-}
+.bg-shoot{position:absolute;width:220px;height:1.5px;background:linear-gradient(90deg,rgba(120,200,255,.95),transparent);top:22%;left:-240px;transform:rotate(-14deg);filter:blur(.4px);animation:bgShoot 18s linear infinite 1s;}
+@keyframes bgShoot{0%{left:-240px;opacity:0}3%{opacity:1}48%{left:110vw;opacity:0}100%{opacity:0}}
 @keyframes blink{0%,100%{opacity:.08}55%{opacity:1}}
-
-/* ════════════════════════════════
-   PHONE OUTER WRAP
-════════════════════════════════ */
-.wrap{position:relative;z-index:2;}
-
-/* Ambient glow behind phone */
-.phone-glow{
-  position:absolute;
-  inset:-50px;border-radius:100px;
-  background:radial-gradient(ellipse at 50% 52%,rgba(60,140,220,.14),transparent 66%);
-  pointer-events:none;z-index:-1;
-  animation:auraGlow 6s ease-in-out infinite;
-}
 @keyframes auraGlow{0%,100%{opacity:.45;transform:scale(.98)}50%{opacity:1;transform:scale(1.02)}}
+@keyframes scrShoot{0%{left:-76px;top:72%;opacity:0}5%{opacity:1}55%{left:110%;top:86%;opacity:0}100%{opacity:0}}
 
-/* ════════════════════════════════
-   PHONE CHASSIS
-════════════════════════════════ */
+/* PHONE WRAP */
+.wrap{position:relative;z-index:2;}
+.phone-glow{position:absolute;inset:-50px;border-radius:100px;background:radial-gradient(ellipse at 50% 52%,rgba(60,140,220,.14),transparent 66%);pointer-events:none;z-index:-1;animation:auraGlow 6s ease-in-out infinite;}
+
+/* CHASSIS */
 .phone{
-  width:316px;
-  height:656px;
-  position:relative;
-  border-radius:54px;
-  /* Steel-blue aluminium frame */
-  background:linear-gradient(148deg,
-    #ddedf8 0%,#b2cfe3 6%,
-    #7bafc9 15%,#4e8dbb 27%,
-    #3876ad 43%,#4e8dbb 58%,
-    #7bafc9 73%,#b2cfe3 88%,
-    #d8eaf5 100%);
+  width:316px;height:656px;position:relative;border-radius:54px;
+  background:linear-gradient(148deg,#ddedf8 0%,#b2cfe3 6%,#7bafc9 15%,#4e8dbb 27%,#3876ad 43%,#4e8dbb 58%,#7bafc9 73%,#b2cfe3 88%,#d8eaf5 100%);
   padding:4px;
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.28),
-    0 0 0 2.5px rgba(0,0,0,.32),
-    0 60px 120px rgba(0,0,0,.9),
-    0 24px 48px rgba(0,0,0,.55),
-    inset 0 2px 0 rgba(255,255,255,.5),
-    inset 0 -1px 0 rgba(0,0,0,.3);
+  box-shadow:0 0 0 1px rgba(255,255,255,.28),0 0 0 2.5px rgba(0,0,0,.32),0 60px 120px rgba(0,0,0,.9),0 24px 48px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.3);
 }
+.btn-power{position:absolute;right:-5.5px;top:158px;width:5.5px;height:72px;border-radius:0 5px 5px 0;background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);box-shadow:2px 1px 6px rgba(0,0,0,.5),inset -1px 0 0 rgba(255,255,255,.38);}
+.btn-vu{position:absolute;left:-5.5px;top:140px;width:5.5px;height:46px;border-radius:5px 0 0 5px;background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);box-shadow:-2px 1px 6px rgba(0,0,0,.5),inset 1px 0 0 rgba(255,255,255,.38);}
+.btn-vd{position:absolute;left:-5.5px;top:197px;width:5.5px;height:46px;border-radius:5px 0 0 5px;background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);box-shadow:-2px 1px 6px rgba(0,0,0,.5),inset 1px 0 0 rgba(255,255,255,.38);}
+.btn-mute{position:absolute;left:-5.5px;top:104px;width:5.5px;height:26px;border-radius:5px 0 0 5px;background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);box-shadow:-2px 1px 5px rgba(0,0,0,.45);}
 
-/* ── Side buttons ── */
-.btn-power{
-  position:absolute;right:-5.5px;top:158px;
-  width:5.5px;height:72px;border-radius:0 5px 5px 0;
-  background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);
-  box-shadow:2px 1px 6px rgba(0,0,0,.5),inset -1px 0 0 rgba(255,255,255,.38);
-}
-.btn-vu{
-  position:absolute;left:-5.5px;top:140px;
-  width:5.5px;height:46px;border-radius:5px 0 0 5px;
-  background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);
-  box-shadow:-2px 1px 6px rgba(0,0,0,.5),inset 1px 0 0 rgba(255,255,255,.38);
-}
-.btn-vd{
-  position:absolute;left:-5.5px;top:197px;
-  width:5.5px;height:46px;border-radius:5px 0 0 5px;
-  background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);
-  box-shadow:-2px 1px 6px rgba(0,0,0,.5),inset 1px 0 0 rgba(255,255,255,.38);
-}
-.btn-mute{
-  position:absolute;left:-5.5px;top:104px;
-  width:5.5px;height:26px;border-radius:5px 0 0 5px;
-  background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);
-  box-shadow:-2px 1px 5px rgba(0,0,0,.45);
-}
+/* INNER SCREEN */
+.phone-inner{width:100%;height:100%;border-radius:50px;background:#040710;overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05),inset 0 3px 12px rgba(0,0,0,.85);}
 
-/* ── Inner screen body ── */
-.phone-inner{
-  width:100%;height:100%;
-  border-radius:50px;
-  background:#040710;
-  overflow:hidden;
-  position:relative;
-  box-shadow:
-    inset 0 0 0 1px rgba(255,255,255,.05),
-    inset 0 3px 12px rgba(0,0,0,.85);
-}
+/* NOTCH */
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:124px;height:34px;background:#000;border-radius:0 0 22px 22px;z-index:20;box-shadow:0 6px 20px rgba(0,0,0,.98);}
+.notch::before{content:'';position:absolute;top:11px;left:50%;transform:translateX(-50%);width:36px;height:4px;border-radius:2px;background:#141414;}
+.notch::after{content:'';position:absolute;top:50%;right:20px;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#232323,#050505);box-shadow:0 0 0 1.5px #141414;}
 
-/* ── Notch ── */
-.notch{
-  position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:124px;height:34px;
-  background:#000;
-  border-radius:0 0 22px 22px;
-  z-index:20;
-  box-shadow:0 6px 20px rgba(0,0,0,.98);
-}
-/* speaker pill */
-.notch::before{
-  content:'';position:absolute;
-  top:11px;left:50%;transform:translateX(-50%);
-  width:36px;height:4px;border-radius:2px;
-  background:#141414;
-  box-shadow:inset 0 1px 2px rgba(0,0,0,.9);
-}
-/* camera lens */
-.notch::after{
-  content:'';position:absolute;
-  top:50%;right:20px;transform:translateY(-50%);
-  width:11px;height:11px;border-radius:50%;
-  background:radial-gradient(circle at 30% 30%,#232323,#050505);
-  box-shadow:0 0 0 1.5px #141414,0 0 10px rgba(0,120,255,.1);
-}
-
-/* ── Status bar ── */
-.status-bar{
-  position:absolute;top:0;left:0;right:0;
-  height:42px;z-index:19;
-  display:flex;align-items:flex-end;justify-content:space-between;
-  padding:0 22px 7px;
-}
-.s-time{
-  font-size:13.5px;font-weight:700;
-  color:#fff;letter-spacing:-.02em;
-}
+/* STATUS BAR */
+.status-bar{position:absolute;top:0;left:0;right:0;height:42px;z-index:19;display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 7px;}
+.s-time{font-size:13.5px;font-weight:700;color:#fff;letter-spacing:-.02em;}
 .s-icons{display:flex;align-items:center;gap:5px;}
-.batt-body{
-  width:22px;height:11px;
-  border:1.5px solid rgba(255,255,255,.68);
-  border-radius:3.5px;position:relative;overflow:hidden;
-}
-.batt-body::after{
-  content:'';position:absolute;
-  right:-4.5px;top:50%;transform:translateY(-50%);
-  width:2.5px;height:5px;
-  background:rgba(255,255,255,.5);
-  border-radius:0 2px 2px 0;
-}
+.batt-body{width:22px;height:11px;border:1.5px solid rgba(255,255,255,.68);border-radius:3.5px;position:relative;overflow:hidden;}
+.batt-body::after{content:'';position:absolute;right:-4.5px;top:50%;transform:translateY(-50%);width:2.5px;height:5px;background:rgba(255,255,255,.5);border-radius:0 2px 2px 0;}
 .batt-fill{height:100%;width:72%;background:#34e55a;}
 
-/* ════════════════════════════════
-   SCROLL SCREEN
-════════════════════════════════ */
-.screen{
-  position:absolute;
-  top:0;left:0;right:0;
-  bottom:80px;
-  padding:46px 16px 16px;
-  overflow-y:auto;overflow-x:hidden;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-  /* deep space gradient */
-  background:
-    radial-gradient(ellipse 140% 50% at 50% 0%,#050e24 0%,#010207 52%,#000 100%);
-}
+/* SCROLL SCREEN */
+.screen{position:absolute;top:0;left:0;right:0;bottom:80px;padding:46px 16px 16px;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:radial-gradient(ellipse 140% 50% at 50% 0%,#050e24 0%,#010207 52%,#000 100%);}
 .screen::-webkit-scrollbar{display:none}
-
-/* stars layer */
-.screen-stars{
-  position:absolute;inset:0;
-  pointer-events:none;overflow:hidden;z-index:0;
-}
+.screen-stars{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:0;}
 .screen-star{position:absolute;border-radius:50%;background:#fff;}
+.scr-shoot{position:absolute;width:68px;height:1px;background:linear-gradient(90deg,rgba(100,200,255,.9),transparent);top:72%;left:-76px;transform:rotate(-19deg);animation:scrShoot 13s linear infinite 6s;z-index:1;}
 
-/* shooting star inside screen */
-.scr-shoot{
-  position:absolute;width:68px;height:1px;
-  background:linear-gradient(90deg,rgba(100,200,255,.9),transparent);
-  top:72%;left:-76px;transform:rotate(-19deg);
-  animation:scrShoot 13s linear infinite 6s;z-index:1;
-}
-@keyframes scrShoot{
-  0%{left:-76px;top:72%;opacity:0}
-  5%{opacity:1}
-  55%{left:110%;top:86%;opacity:0}
-  100%{opacity:0}
-}
+/* PROFILE */
+.profile{display:flex;flex-direction:column;align-items:center;padding:8px 0 20px;position:relative;z-index:2;}
+.avatar{width:76px;height:76px;border-radius:50%;background:#0d1f35;display:flex;align-items:center;justify-content:center;border:2.5px solid rgba(255,255,255,.18);box-shadow:0 8px 28px rgba(0,0,0,.7),0 0 0 5px rgba(96,200,255,.07);margin-bottom:12px;overflow:hidden;flex-shrink:0;}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center top;border-radius:50%;display:block;}
+.profile-name{font-size:17px;font-weight:700;letter-spacing:-.02em;color:#fff;margin-bottom:4px;}
+.profile-role{font-size:10.5px;font-weight:400;color:rgba(255,255,255,.42);letter-spacing:.06em;text-transform:uppercase;}
 
-/* ════════════════════════════════
-   PROFILE HEADER
-════════════════════════════════ */
-.profile{
-  display:flex;flex-direction:column;align-items:center;
-  padding:6px 0 18px;
-  position:relative;z-index:2;
-}
-.avatar{
-  width:76px;height:76px;border-radius:50%;
-  background:#0d1f35;
-  display:flex;align-items:center;justify-content:center;
-  font-size:28px;
-  border:2.5px solid rgba(255,255,255,.18);
-  box-shadow:0 8px 28px rgba(0,0,0,.7),0 0 0 5px rgba(96,200,255,.07);
-  margin-bottom:12px;
-  overflow:hidden;
-  flex-shrink:0;
-}
-.avatar img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center top;
-  border-radius:50%;
-  display:block;
-}
-.profile-name{
-  font-size:17px;font-weight:700;
-  letter-spacing:-.02em;color:#fff;
-  margin-bottom:3px;
-}
-.profile-role{
-  font-size:11px;font-weight:400;
-  color:rgba(255,255,255,.44);
-  letter-spacing:.04em;text-transform:uppercase;
-}
+/* SECTION LABEL */
+.section-label{font-size:9.5px;font-weight:600;color:rgba(255,255,255,.25);letter-spacing:.12em;text-transform:uppercase;padding:0 2px;margin:0 0 12px;position:relative;z-index:2;}
 
-/* ════════════════════════════════
-   SECTION LABEL
-════════════════════════════════ */
-.section-label{
-  font-size:10px;font-weight:600;
-  color:rgba(255,255,255,.28);
-  letter-spacing:.1em;text-transform:uppercase;
-  padding:0 4px;
-  margin:0 0 10px;
-  position:relative;z-index:2;
-}
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 0;justify-items:center;padding:0 0 4px;position:relative;z-index:2;}
 
-/* ════════════════════════════════
-   APP GRID  —  4 columns, perfectly even
-════════════════════════════════ */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px 0;          /* row-gap / col-gap: cols use justify-items for centering */
-  justify-items:center;
-  padding:0 0 4px;
-  position:relative;z-index:2;
-}
+/* APP — div for panel, a for external */
+.app{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;width:64px;}
 
-.app{
-  display:flex;flex-direction:column;align-items:center;
-  text-decoration:none;color:#fff;cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
-  user-select:none;
-  width:64px;          /* fixed cell width for perfect alignment */
-}
+.icon{width:54px;height:54px;border-radius:13px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;transition:transform .14s cubic-bezier(.18,.9,.22,1),box-shadow .14s;box-shadow:0 4px 10px rgba(0,0,0,.5),0 1px 3px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.25);}
+.icon::after{content:'';position:absolute;inset:0;border-radius:13px;background:linear-gradient(180deg,rgba(255,255,255,.2) 0%,rgba(255,255,255,.04) 40%,transparent 55%);pointer-events:none;z-index:5;}
+.icon img{width:100%;height:100%;object-fit:cover;display:block;position:relative;z-index:2;}
+.icon-inner{width:100%;height:100%;position:relative;z-index:2;display:flex;align-items:center;justify-content:center;}
+.app:active .icon{transform:scale(.82);box-shadow:0 2px 5px rgba(0,0,0,.5);}
+.app:hover .icon{transform:scale(1.08);box-shadow:0 12px 28px rgba(0,0,0,.65);}
+.app-label{margin-top:6px;font-size:9.5px;font-weight:400;color:rgba(255,255,255,.85);text-align:center;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 5px rgba(0,0,0,.9);}
 
-.icon{
-  width:54px;height:54px;
-  border-radius:13px;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;position:relative;
-  transition:transform .14s cubic-bezier(.18,.9,.22,1),
-             box-shadow .14s;
-  /* iOS-style shadow stack */
-  box-shadow:
-    0 4px 10px rgba(0,0,0,.5),
-    0 1px 3px rgba(0,0,0,.3),
-    inset 0 1px 0 rgba(255,255,255,.22),
-    inset 0 -1px 0 rgba(0,0,0,.25);
-}
+/* FOOTER */
+.built{display:flex;align-items:center;justify-content:center;gap:4px;margin-top:22px;margin-bottom:2px;color:rgba(255,255,255,.35);font-size:10px;letter-spacing:.03em;position:relative;z-index:2;}
 
-/* iOS top-gloss */
-.icon::after{
-  content:'';position:absolute;inset:0;
-  border-radius:13px;
-  background:linear-gradient(180deg,
-    rgba(255,255,255,.2) 0%,
-    rgba(255,255,255,.04) 40%,
-    rgba(255,255,255,0) 55%);
-  pointer-events:none;z-index:5;
-}
-
-.icon img{
-  width:100%;height:100%;
-  object-fit:cover;display:block;
-  position:relative;z-index:2;
-}
-.icon-inner{
-  width:100%;height:100%;
-  position:relative;z-index:2;
-  display:flex;align-items:center;justify-content:center;
-}
-
-.app:active .icon{
-  transform:scale(.82);
-  box-shadow:0 2px 5px rgba(0,0,0,.5);
-}
-.app:hover .icon{
-  transform:scale(1.08);
-  box-shadow:0 12px 28px rgba(0,0,0,.65);
-}
-
-.app-label{
-  margin-top:6px;
-  font-size:9.5px;
-  font-weight:400;
-  color:rgba(255,255,255,.85);
-  text-align:center;
-  width:100%;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  text-shadow:0 1px 5px rgba(0,0,0,.9);
-  letter-spacing:.005em;
-}
-
-/* ════════════════════════════════
-   FOOTER
-════════════════════════════════ */
-.built{
-  display:flex;align-items:center;justify-content:center;gap:4px;
-  margin-top:22px;margin-bottom:2px;
-  color:rgba(255,255,255,.38);font-size:10px;
-  font-weight:400;letter-spacing:.03em;
-  position:relative;z-index:2;
-}
-
-/* ════════════════════════════════
-   DOCK
-════════════════════════════════ */
-.dock{
-  position:absolute;bottom:0;left:0;right:0;
-  height:80px;
-  /* frosted glass */
-  background:rgba(10,16,34,.9);
-  backdrop-filter:blur(30px) saturate(180%);
-  -webkit-backdrop-filter:blur(30px) saturate(180%);
-  border-top:1px solid rgba(255,255,255,.06);
-  display:flex;align-items:center;justify-content:space-around;
-  padding:0 20px 18px;
-  z-index:15;
-}
+/* DOCK */
+.dock{position:absolute;bottom:0;left:0;right:0;height:80px;background:rgba(10,16,34,.9);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-around;padding:0 20px 18px;z-index:15;}
 .dock .icon{width:50px;height:50px;}
 .dock .app-label{font-size:9px;}
+.home-bar{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:104px;height:4px;background:rgba(255,255,255,.26);border-radius:2px;z-index:16;}
 
-.home-bar{
-  position:absolute;bottom:7px;left:50%;transform:translateX(-50%);
-  width:104px;height:4px;
-  background:rgba(255,255,255,.26);
-  border-radius:2px;z-index:16;
-}
-
-/* ════════════════════════════════
-   BOTTOM SHEET PANEL
-════════════════════════════════ */
-.panel-overlay{
-  position:absolute;inset:0;border-radius:50px;
-  background:rgba(0,0,0,.65);
-  backdrop-filter:blur(14px) saturate(160%);
-  -webkit-backdrop-filter:blur(14px) saturate(160%);
-  opacity:0;visibility:hidden;
-  transition:opacity .28s ease;
-  z-index:25;
-}
+/* PANEL OVERLAY */
+.panel-overlay{position:absolute;inset:0;border-radius:50px;background:rgba(0,0,0,.65);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);opacity:0;visibility:hidden;transition:opacity .28s ease;z-index:25;}
 .panel-overlay.show{opacity:1;visibility:visible;}
 
+/* PANEL SHEET */
 .panel{
-  position:absolute;bottom:0;left:0;right:0;
-  max-height:84%;
+  position:absolute;bottom:0;left:0;right:0;max-height:84%;
   background:linear-gradient(172deg,#141e33 0%,#0b1121 100%);
   border:1px solid rgba(255,255,255,.08);
   border-radius:28px 28px 50px 50px;
   padding:0 20px 32px;
   opacity:0;visibility:hidden;z-index:26;
   transform:translateY(108%);
-  transition:transform .36s cubic-bezier(.14,.9,.2,1),
-             opacity .28s ease,
-             visibility 0s .28s;
+  transition:transform .36s cubic-bezier(.14,.9,.2,1),opacity .28s ease,visibility 0s .36s;
   overflow-y:auto;scrollbar-width:none;
   box-shadow:0 -32px 90px rgba(0,0,0,.85);
 }
-.panel.show{
-  opacity:1;visibility:visible;
-  transform:translateY(0);
-  transition:transform .36s cubic-bezier(.14,.9,.2,1),
-             opacity .28s ease;
-}
+.panel.show{opacity:1;visibility:visible;transform:translateY(0);transition:transform .36s cubic-bezier(.14,.9,.2,1),opacity .28s ease;}
 .panel::-webkit-scrollbar{display:none}
-
-/* Handle */
-.p-handle{
-  width:36px;height:4px;
-  background:rgba(255,255,255,.16);
-  border-radius:2px;
-  margin:13px auto 18px;
-}
-
-/* Panel header */
-.p-head{
-  display:flex;align-items:center;justify-content:space-between;
-  margin-bottom:16px;
-}
-.p-head h2{
-  font-size:18px;font-weight:700;
-  letter-spacing:-.025em;color:#fff;
-}
-.close-btn{
-  width:30px;height:30px;border-radius:50%;
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.06);
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;flex-shrink:0;
-  transition:background .15s,transform .1s;
-}
-.close-btn:hover{background:rgba(255,255,255,.18);}
+.p-handle{width:36px;height:4px;background:rgba(255,255,255,.16);border-radius:2px;margin:13px auto 18px;}
+.p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.p-head h2{font-size:18px;font-weight:700;letter-spacing:-.025em;color:#fff;}
+.close-btn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background .15s,transform .1s;}
+.close-btn:hover{background:rgba(255,255,255,.2);}
 .close-btn:active{transform:scale(.9);}
 
-/* Panel body */
-.pbody{
-  color:rgba(255,255,255,.65);
-  font-size:13.5px;
-  line-height:1.7;
-}
+/* PANEL BODY */
+.pbody{color:rgba(255,255,255,.65);font-size:13.5px;line-height:1.7;}
 .pbody p{margin-bottom:12px;}
 .pbody strong{color:#fff;font-weight:600;}
 .pbody a{color:#60c8ff;text-decoration:none;font-weight:500;}
-.pbody a:hover{color:#90d8ff;}
-
-/* Section heading inside panel */
-.psec{
-  font-size:10.5px;font-weight:600;
-  color:rgba(255,255,255,.28);
-  text-transform:uppercase;letter-spacing:.1em;
-  margin:18px 0 8px;
-}
-.psec:first-child{margin-top:0;}
-
-/* Tags */
-.tag{
-  display:inline-flex;align-items:center;
-  padding:4px 11px;border-radius:20px;
-  background:rgba(255,255,255,.07);
-  font-size:11.5px;margin:3px;
-  color:rgba(255,255,255,.7);
-  border:1px solid rgba(255,255,255,.07);
-  letter-spacing:.01em;
-}
-
-/* Link cards */
-.lc{
-  display:flex;align-items:center;gap:12px;
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:14px;
-  padding:13px 14px;margin-bottom:10px;
-  text-decoration:none;color:inherit;
-  transition:background .18s,transform .12s;
-}
-.lc:hover{background:rgba(255,255,255,.09);}
+.pbody a:hover{color:#90d8ff;text-decoration:underline;}
+.psec{font-size:10.5px;font-weight:600;color:rgba(255,255,255,.28);text-transform:uppercase;letter-spacing:.1em;margin:18px 0 9px;}
+.psec:first-child{margin-top:4px;}
+.tag{display:inline-flex;align-items:center;padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.07);font-size:11.5px;margin:3px;color:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.08);}
+.lc{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:13px 14px;margin-bottom:9px;text-decoration:none;color:inherit;transition:background .18s,border-color .18s,transform .12s;}
+.lc:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.14);}
 .lc:active{transform:scale(.98);}
-.lc-ico{
-  width:40px;height:40px;border-radius:10px;
-  display:flex;align-items:center;justify-content:center;
-  font-size:19px;flex-shrink:0;
-}
+.lc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
 .lc-info{flex:1;min-width:0;}
-.lc-info h3{
-  font-size:13.5px;font-weight:600;
-  color:#fff;margin-bottom:2px;
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.lc-info p{
-  font-size:11.5px;color:rgba(255,255,255,.4);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.lc-arr{
-  color:rgba(255,255,255,.22);
-  font-size:20px;font-weight:300;flex-shrink:0;
-}
-
-/* Divider */
-.pdiv{
-  height:1px;background:rgba(255,255,255,.06);
-  margin:16px 0;border-radius:1px;
-}
+.lc-info h3{font-size:13.5px;font-weight:600;color:#fff;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lc-info p{font-size:11.5px;color:rgba(255,255,255,.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.lc-arr{color:rgba(255,255,255,.2);font-size:20px;font-weight:300;flex-shrink:0;line-height:1;}
+.pdiv{height:1px;background:rgba(255,255,255,.06);margin:16px 0;border-radius:1px;}
 </style>
 </head>
 <body>
 
-<!-- ── Space ── -->
 <div class="space" id="bgSpace"><div class="bg-shoot"></div></div>
 
 <div class="wrap">
   <div class="phone-glow"></div>
   <div class="phone">
-
-    <!-- Physical buttons -->
-    <div class="btn-mute"></div>
-    <div class="btn-vu"></div>
-    <div class="btn-vd"></div>
-    <div class="btn-power"></div>
+    <div class="btn-mute"></div><div class="btn-vu"></div><div class="btn-vd"></div><div class="btn-power"></div>
 
     <div class="phone-inner">
       <div class="notch"></div>
 
-      <!-- Status bar -->
       <div class="status-bar">
         <span class="s-time" id="sTime">10:17</span>
         <div class="s-icons">
-          <!-- Signal -->
-          <svg width="16" height="11" viewBox="0 0 16 11" fill="white" opacity=".88">
-            <rect x="0" y="5.5" width="2.8" height="5.5" rx=".8"/>
-            <rect x="4.4" y="3.5" width="2.8" height="7.5" rx=".8"/>
-            <rect x="8.8" y="1.5" width="2.8" height="9.5" rx=".8"/>
-            <rect x="13.2" y="0" width="2.8" height="11" rx=".8" opacity=".3"/>
-          </svg>
-          <!-- Wi-Fi -->
-          <svg width="15" height="11" viewBox="0 0 20 14" fill="white" opacity=".88">
-            <path d="M10 3C6.7 3 3.8 4.4 1.8 6.7L0 5C2.5 2.1 6 .2 10 .2s7.5 1.9 10 4.8L18.2 6.7C16.2 4.4 13.3 3 10 3z"/>
-            <path d="M10 7c-1.9 0-3.6.8-4.8 2.1L3.4 7.3C5.1 5.4 7.4 4.2 10 4.2s4.9 1.2 6.6 3.1L14.8 9.1C13.6 7.8 11.9 7 10 7z"/>
-            <circle cx="10" cy="12" r="2.2"/>
-          </svg>
-          <!-- Battery -->
+          <svg width="16" height="11" viewBox="0 0 16 11" fill="white" opacity=".88"><rect x="0" y="5.5" width="2.8" height="5.5" rx=".8"/><rect x="4.4" y="3.5" width="2.8" height="7.5" rx=".8"/><rect x="8.8" y="1.5" width="2.8" height="9.5" rx=".8"/><rect x="13.2" y="0" width="2.8" height="11" rx=".8" opacity=".3"/></svg>
+          <svg width="15" height="11" viewBox="0 0 20 14" fill="white" opacity=".88"><path d="M10 3C6.7 3 3.8 4.4 1.8 6.7L0 5C2.5 2.1 6 .2 10 .2s7.5 1.9 10 4.8L18.2 6.7C16.2 4.4 13.3 3 10 3z"/><path d="M10 7c-1.9 0-3.6.8-4.8 2.1L3.4 7.3C5.1 5.4 7.4 4.2 10 4.2s4.9 1.2 6.6 3.1L14.8 9.1C13.6 7.8 11.9 7 10 7z"/><circle cx="10" cy="12" r="2.2"/></svg>
           <div class="batt-body"><div class="batt-fill"></div></div>
         </div>
       </div>
 
-      <!-- ── Main scroll area ── -->
       <div class="screen">
         <div class="screen-stars" id="screenStars"></div>
         <div class="scr-shoot"></div>
 
-        <!-- Profile header -->
         <div class="profile">
           <div class="avatar">
-            <img
-              src="https://raw.githubusercontent.com/Azgames724/Abenezer-portfolio-/main/file_00000000a6107209bab03970637aecc5.png"
-              alt="Abenezer Shiferaw"
-              onerror="this.style.display='none'"
-            />
+            <img src="https://raw.githubusercontent.com/Azgames724/Abenezer-portfolio-/main/file_00000000a6107209bab03970637aecc5.png" alt="Abenezer" onerror="this.style.display='none'"/>
           </div>
           <div class="profile-name">Abenezer Shiferaw</div>
-          <div class="profile-role">Game Dev · Web Designer · Ethiopia</div>
+          <div class="profile-role">Game Dev &middot; Web Designer &middot; Ethiopia</div>
         </div>
 
-        <!-- Portfolio section -->
         <div class="section-label">Portfolio</div>
         <div class="grid" id="appGrid">
 
-          <a class="app" data-app="about">
+          <div class="app" data-app="about" role="button" tabindex="0">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/user-male-circle.png" alt=""/></div>
             <div class="app-label">About</div>
-          </a>
+          </div>
 
-          <a class="app" data-app="skills">
+          <div class="app" data-app="skills" role="button" tabindex="0">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/idea.png" alt=""/></div>
             <div class="app-label">Skills</div>
-          </a>
+          </div>
 
-          <a class="app" href="https://abeni.itch.io/" target="_blank">
+          <a class="app" href="https://abeni.itch.io/" target="_blank" rel="noopener">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/grid.png" alt=""/></div>
             <div class="app-label">Projects</div>
           </a>
 
-          <a class="app" data-app="experience">
+          <div class="app" data-app="experience" role="button" tabindex="0">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/prize.png" alt=""/></div>
             <div class="app-label">Experience</div>
-          </a>
+          </div>
 
-          <a class="app" data-app="tools">
+          <div class="app" data-app="tools" role="button" tabindex="0">
             <div class="icon" style="background:#1565C0">
               <div class="icon-inner" style="color:#fff;font-size:18px;font-weight:800;letter-spacing:-.06em">&lt;/&gt;</div>
             </div>
             <div class="app-label">Tools</div>
-          </a>
+          </div>
 
-          <a class="app" href="https://et.linkedin.com/in/abenezer-shiferaw-0565ba216" target="_blank">
-            <div class="icon" style="background:#0077B5">
-              <img src="https://img.icons8.com/fluency/96/linkedin.png" alt=""/>
-            </div>
+          <a class="app" href="https://et.linkedin.com/in/abenezer-shiferaw-0565ba216" target="_blank" rel="noopener">
+            <div class="icon" style="background:#0077B5"><img src="https://img.icons8.com/fluency/96/linkedin.png" alt=""/></div>
             <div class="app-label">LinkedIn</div>
           </a>
 
-          <a class="app" href="https://instagram.com/abeni_xxi" target="_blank">
+          <a class="app" href="https://instagram.com/abeni_xxi" target="_blank" rel="noopener">
             <div class="icon">
-              <div class="icon-inner" style="background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);width:100%;height:100%;border-radius:13px;">
-                <svg width="27" height="27" viewBox="0 0 24 24" fill="white" style="position:relative;z-index:2">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
+              <div class="icon-inner" style="background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);width:100%;height:100%;border-radius:13px;">
+                <svg width="27" height="27" viewBox="0 0 24 24" fill="white" style="position:relative;z-index:2"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
               </div>
             </div>
             <div class="app-label">Instagram</div>
           </a>
 
-          <a class="app" href="https://t.me/abeni501" target="_blank">
+          <a class="app" href="https://t.me/abeni501" target="_blank" rel="noopener">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/telegram-app.png" alt=""/></div>
             <div class="app-label">Telegram</div>
           </a>
 
-          <a class="app" href="https://youtube.com/@abenigaming" target="_blank">
+          <a class="app" href="https://youtube.com/@abenigaming" target="_blank" rel="noopener">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/youtube-play.png" alt=""/></div>
             <div class="app-label">YouTube</div>
           </a>
 
-          <a class="app" href="/cdn-cgi/l/email-protection#76171413181f051e1f06474536111b171f1a5815191b">
+          <a class="app" href="mailto:abeniship13@gmail.com">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/gmail.png" alt=""/></div>
             <div class="app-label">Gmail</div>
           </a>
 
-        </div><!-- /portfolio grid -->
+        </div>
 
-        <!-- Games section -->
-        <div class="section-label" style="margin-top:22px">Games</div>
-        <div class="grid">
+        <div class="section-label" style="margin-top:24px">Games</div>
+        <div class="grid" id="gamesGrid">
 
-          <a class="app" data-app="tictactoe">
+          <div class="app" data-app="tictactoe" role="button" tabindex="0">
             <div class="icon" style="background:#fff;padding:5px">
               <svg width="44" height="44" viewBox="0 0 44 44">
                 <line x1="15" y1="4" x2="15" y2="40" stroke="#e53935" stroke-width="2.5" stroke-linecap="round"/>
@@ -652,36 +254,36 @@ html,body{
               </svg>
             </div>
             <div class="app-label">Tic Tac Toe</div>
-          </a>
+          </div>
 
-          <a class="app" data-app="snake">
+          <div class="app" data-app="snake" role="button" tabindex="0">
             <div class="icon" style="background:#1B5E20">
               <img src="https://img.icons8.com/fluency/96/snake.png" alt=""/>
             </div>
             <div class="app-label">Snake Game</div>
-          </a>
+          </div>
 
-        </div><!-- /games grid -->
+        </div>
 
         <div class="built">
           <span>Built with</span>
-          <span style="color:#54C5F8;font-size:12px">⚡</span>
+          <span style="color:#54C5F8;font-size:12px">&#9889;</span>
           <span>using</span>
-          <span style="color:#2196F3;font-size:12px">💙</span>
+          <span style="color:#2196F3;font-size:12px">&#128153;</span>
         </div>
-      </div><!-- /screen -->
+      </div>
 
-      <!-- ── Dock ── -->
+      <!-- DOCK -->
       <div class="dock">
-        <a class="app" href="https://abeni.itch.io/" target="_blank">
+        <a class="app" href="https://abeni.itch.io/" target="_blank" rel="noopener">
           <div class="icon"><img src="https://img.icons8.com/fluency/96/game-controller.png" alt=""/></div>
           <div class="app-label">Games</div>
         </a>
-        <a class="app" href="https://t.me/abeni501" target="_blank">
+        <a class="app" href="https://t.me/abeni501" target="_blank" rel="noopener">
           <div class="icon"><img src="https://img.icons8.com/fluency/96/telegram-app.png" alt=""/></div>
           <div class="app-label">Telegram</div>
         </a>
-        <a class="app" href="https://instagram.com/abeni_xxi" target="_blank">
+        <a class="app" href="https://instagram.com/abeni_xxi" target="_blank" rel="noopener">
           <div class="icon">
             <div class="icon-inner" style="background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);width:100%;height:100%;border-radius:13px;">
               <svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -689,195 +291,85 @@ html,body{
           </div>
           <div class="app-label">Instagram</div>
         </a>
-        <a class="app" href="https://youtube.com/@abenigaming" target="_blank">
+        <a class="app" href="https://youtube.com/@abenigaming" target="_blank" rel="noopener">
           <div class="icon"><img src="https://img.icons8.com/fluency/96/youtube-play.png" alt=""/></div>
           <div class="app-label">YouTube</div>
         </a>
       </div>
       <div class="home-bar"></div>
 
-      <!-- Panel -->
+      <!-- PANEL -->
       <div class="panel-overlay" id="overlay"></div>
       <div class="panel" id="panel">
         <div class="p-handle"></div>
         <div class="p-head">
           <h2 id="panelTitle"></h2>
           <button class="close-btn" id="closeBtn" aria-label="Close">
-            <svg width="11" height="11" viewBox="0 0 24 24" fill="none">
-              <path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
-            </svg>
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
           </button>
         </div>
         <div class="pbody" id="panelBody"></div>
       </div>
 
-    </div><!-- /phone-inner -->
-  </div><!-- /phone -->
-</div><!-- /wrap -->
+    </div>
+  </div>
+</div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ── Live clock ── */
+<script>
+/* Clock */
 function tick(){
-  const n=new Date(),h=n.getHours(),m=n.getMinutes();
-  const el=document.getElementById('sTime');
-  if(el) el.textContent=`${h}:${m<10?'0'+m:m}`;
+  var n=new Date(),h=n.getHours(),m=n.getMinutes();
+  var el=document.getElementById('sTime');
+  if(el) el.textContent=h+':'+(m<10?'0':'')+m;
 }
 tick(); setInterval(tick,20000);
 
-/* ── Background stars ── */
+/* BG stars */
 (function(){
-  const bg=document.getElementById('bgSpace');
-  for(let i=0;i<240;i++){
-    const s=document.createElement('div'); s.className='star';
-    const z=(Math.random()*2.8+.3).toFixed(1);
-    s.style.cssText=`width:${z}px;height:${z}px;`
-      +`left:${(Math.random()*100).toFixed(2)}%;`
-      +`top:${(Math.random()*100).toFixed(2)}%;`
-      +`opacity:${(.08+Math.random()*.92).toFixed(2)}`;
-    if(Math.random()>.5)
-      s.style.animation=`blink ${(2+Math.random()*6).toFixed(1)}s ease-in-out `
-        +`${(Math.random()*8).toFixed(1)}s infinite`;
+  var bg=document.getElementById('bgSpace');
+  for(var i=0;i<240;i++){
+    var s=document.createElement('div'); s.className='star';
+    var z=(Math.random()*2.8+.3).toFixed(1);
+    s.style.cssText='width:'+z+'px;height:'+z+'px;left:'+(Math.random()*100).toFixed(2)+'%;top:'+(Math.random()*100).toFixed(2)+'%;opacity:'+(0.08+Math.random()*0.92).toFixed(2);
+    if(Math.random()>.5) s.style.animation='blink '+(2+Math.random()*6).toFixed(1)+'s ease-in-out '+(Math.random()*8).toFixed(1)+'s infinite';
     bg.appendChild(s);
   }
 })();
 
-/* ── Screen stars ── */
+/* Screen stars */
 (function(){
-  const sc=document.getElementById('screenStars');
-  for(let i=0;i<100;i++){
-    const s=document.createElement('div'); s.className='screen-star';
-    const z=(Math.random()*2+.25).toFixed(1);
-    s.style.cssText=`width:${z}px;height:${z}px;`
-      +`left:${(Math.random()*100).toFixed(2)}%;`
-      +`top:${(Math.random()*100).toFixed(2)}%;`
-      +`opacity:${(.06+Math.random()*.75).toFixed(2)}`;
-    if(Math.random()>.38)
-      s.style.animation=`blink ${(1.8+Math.random()*5).toFixed(1)}s ease-in-out `
-        +`${(Math.random()*6).toFixed(1)}s infinite`;
+  var sc=document.getElementById('screenStars');
+  for(var i=0;i<100;i++){
+    var s=document.createElement('div'); s.className='screen-star';
+    var z=(Math.random()*2+.25).toFixed(1);
+    s.style.cssText='width:'+z+'px;height:'+z+'px;left:'+(Math.random()*100).toFixed(2)+'%;top:'+(Math.random()*100).toFixed(2)+'%;opacity:'+(0.06+Math.random()*0.75).toFixed(2);
+    if(Math.random()>.38) s.style.animation='blink '+(1.8+Math.random()*5).toFixed(1)+'s ease-in-out '+(Math.random()*6).toFixed(1)+'s infinite';
     sc.appendChild(s);
   }
 })();
 
-/* ── Panel content ── */
-const panels={
-  about:{
-    title:'About Me',
-    html:`
-      <p>Hi! I'm <strong>Abenezer Shiferaw</strong> — a passionate <strong>Game Developer</strong> & <strong>Web Designer</strong> based in Ethiopia 🇪🇹.</p>
-      <p>I love bringing ideas to life through code, interactive design, and games.</p>
-      <div class="pdiv"></div>
-      <div class="psec">Get in touch</div>
-      <a class="lc" href="mailto:abeniship13@gmail.com" target="_blank">
-        <div class="lc-ico" style="background:rgba(234,67,53,.14)">📧</div>
-        <div class="lc-info"><h3>Email</h3><p>abeniship13@gmail.com</p></div>
-        <span class="lc-arr">›</span>
-      </a>
-      <a class="lc" href="https://t.me/abeni501" target="_blank">
-        <div class="lc-ico" style="background:rgba(42,171,238,.14)">✈️</div>
-        <div class="lc-info"><h3>Telegram</h3><p>@abeni501</p></div>
-        <span class="lc-arr">›</span>
-      </a>
-      <a class="lc" href="https://instagram.com/abeni_xxi" target="_blank">
-        <div class="lc-ico" style="background:rgba(220,39,67,.13)">📸</div>
-        <div class="lc-info"><h3>Instagram</h3><p>@abeni_xxi</p></div>
-        <span class="lc-arr">›</span>
-      </a>
-      <a class="lc" href="https://youtube.com/@abenigaming" target="_blank">
-        <div class="lc-ico" style="background:rgba(255,0,0,.11)">📺</div>
-        <div class="lc-info"><h3>YouTube</h3><p>@abenigaming</p></div>
-        <span class="lc-arr">›</span>
-      </a>
-      <a class="lc" href="https://et.linkedin.com/in/abenezer-shiferaw-0565ba216" target="_blank">
-        <div class="lc-ico" style="background:rgba(0,119,181,.14)">💼</div>
-        <div class="lc-info"><h3>LinkedIn</h3><p>Abenezer Shiferaw</p></div>
-        <span class="lc-arr">›</span>
-      </a>
-      <a class="lc" href="https://abeni.itch.io/" target="_blank">
-        <div class="lc-ico" style="background:rgba(255,80,80,.11)">🎮</div>
-        <div class="lc-info"><h3>itch.io</h3><p>abeni.itch.io</p></div>
-        <span class="lc-arr">›</span>
-      </a>
-    `
-  },
-  skills:{
-    title:'Skills',
-    html:`
-      <div class="psec">Languages</div>
-      <div><span class="tag">Python</span><span class="tag">GDScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Dart</span></div>
-      <div class="psec">Frameworks & Engines</div>
-      <div><span class="tag">Flutter</span><span class="tag">Godot 4</span></div>
-      <div class="psec">Design</div>
-      <div><span class="tag">UI / UX</span><span class="tag">Figma</span><span class="tag">Game Design</span><span class="tag">Web Design</span></div>
-      <div class="psec">Tools</div>
-      <div><span class="tag">VS Code</span><span class="tag">Git</span><span class="tag">Android Studio</span><span class="tag">Firebase</span><span class="tag">Canva</span></div>
-    `
-  },
-  experience:{
-    title:'Experience',
-    html:`
-      <div class="psec">Game Development</div>
-      <p>🎮 Published indie games on <a href="https://abeni.itch.io/" target="_blank">itch.io</a> built with Godot Engine & GDScript.</p>
-      <div class="pdiv"></div>
-      <div class="psec">Web Development</div>
-      <p>🌐 Responsive websites, landing pages & interactive tools using HTML, CSS & JavaScript.</p>
-      <div class="pdiv"></div>
-      <div class="psec">Mobile</div>
-      <p>📱 Flutter / Dart Android apps on the Play Store.</p>
-      <div class="pdiv"></div>
-      <div class="psec">Content Creation</div>
-      <p>📺 Gaming videos on <a href="https://youtube.com/@abenigaming" target="_blank">YouTube @abenigaming</a>.</p>
-    `
-  },
-  tools:{
-    title:'Dev Tools',
-    html:`
-      <div class="psec">Editors & IDEs</div>
-      <div><span class="tag">VS Code</span><span class="tag">Godot Editor</span><span class="tag">Android Studio</span></div>
-      <div class="psec">Version Control</div>
-      <div><span class="tag">Git</span><span class="tag">GitHub</span></div>
-      <div class="psec">Design</div>
-      <div><span class="tag">Figma</span><span class="tag">Canva</span></div>
-      <div class="psec">Backend & Other</div>
-      <div><span class="tag">Firebase</span><span class="tag">Postman</span><span class="tag">Terminal</span></div>
-    `
-  },
-  tictactoe:{
-    title:'Tic Tac Toe',
-    html:`
-      <p id="ttt-msg" style="text-align:center;margin-bottom:16px;font-size:13px;color:rgba(255,255,255,.48);font-weight:500">X's turn</p>
-      <div id="ttt" style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:216px;margin:0 auto"></div>
-      <button onclick="resetTTT()" style="display:block;margin:16px auto 0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.8);padding:9px 30px;border-radius:12px;cursor:pointer;font-size:12.5px;font-family:inherit;font-weight:500;letter-spacing:.02em;transition:background .15s">
-        New Game
-      </button>
-    `
-  },
-  snake:{
-    title:'Snake Game',
-    html:`
-      <p style="text-align:center;padding:22px 0;font-size:46px">🐍</p>
-      <a href="https://abeni.itch.io/" target="_blank"
-         style="display:flex;align-items:center;justify-content:center;gap:8px;
-                background:rgba(0,200,100,.09);border:1px solid rgba(0,200,100,.2);
-                color:#4dff9a;padding:14px;border-radius:14px;
-                font-weight:600;font-size:13.5px;text-decoration:none;
-                letter-spacing:.01em;transition:background .15s">
-        🎮 &nbsp;Play on itch.io →
-      </a>
-    `
-  }
+/* Panel data */
+var panels={
+  about:{title:'About Me',html:'<p>Hi! I\'m <strong>Abenezer Shiferaw</strong> \u2014 a passionate <strong>Game Developer</strong> &amp; <strong>Web Designer</strong> based in Ethiopia \ud83c\uddea\ud83c\uddf9.</p><p>I love bringing ideas to life through code, interactive design, and games.</p><div class="pdiv"></div><div class="psec">Get in touch</div><a class="lc" href="mailto:abeniship13@gmail.com"><div class="lc-ico" style="background:rgba(234,67,53,.14)">\ud83d\udce7</div><div class="lc-info"><h3>Email</h3><p>abeniship13@gmail.com</p></div><span class="lc-arr">\u203a</span></a><a class="lc" href="https://t.me/abeni501" target="_blank" rel="noopener"><div class="lc-ico" style="background:rgba(42,171,238,.14)">\u2708\ufe0f</div><div class="lc-info"><h3>Telegram</h3><p>@abeni501</p></div><span class="lc-arr">\u203a</span></a><a class="lc" href="https://instagram.com/abeni_xxi" target="_blank" rel="noopener"><div class="lc-ico" style="background:rgba(220,39,67,.13)">\ud83d\udcf8</div><div class="lc-info"><h3>Instagram</h3><p>@abeni_xxi</p></div><span class="lc-arr">\u203a</span></a><a class="lc" href="https://youtube.com/@abenigaming" target="_blank" rel="noopener"><div class="lc-ico" style="background:rgba(255,0,0,.11)">\ud83d\udcfa</div><div class="lc-info"><h3>YouTube</h3><p>@abenigaming</p></div><span class="lc-arr">\u203a</span></a><a class="lc" href="https://et.linkedin.com/in/abenezer-shiferaw-0565ba216" target="_blank" rel="noopener"><div class="lc-ico" style="background:rgba(0,119,181,.14)">\ud83d\udcbc</div><div class="lc-info"><h3>LinkedIn</h3><p>Abenezer Shiferaw</p></div><span class="lc-arr">\u203a</span></a><a class="lc" href="https://abeni.itch.io/" target="_blank" rel="noopener"><div class="lc-ico" style="background:rgba(255,80,80,.11)">\ud83c\udfae</div><div class="lc-info"><h3>itch.io</h3><p>abeni.itch.io</p></div><span class="lc-arr">\u203a</span></a>'},
+  skills:{title:'Skills',html:'<div class="psec">Languages</div><div><span class="tag">Python</span><span class="tag">GDScript</span><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Dart</span></div><div class="psec">Frameworks &amp; Engines</div><div><span class="tag">Flutter</span><span class="tag">Godot 4</span></div><div class="psec">Design</div><div><span class="tag">UI / UX</span><span class="tag">Figma</span><span class="tag">Game Design</span><span class="tag">Web Design</span></div><div class="psec">Tools</div><div><span class="tag">VS Code</span><span class="tag">Git</span><span class="tag">Android Studio</span><span class="tag">Firebase</span><span class="tag">Canva</span></div>'},
+  experience:{title:'Experience',html:'<div class="psec">Game Development</div><p>\ud83c\udfae Published indie games on <a href="https://abeni.itch.io/" target="_blank">itch.io</a> \u2014 built with Godot Engine &amp; GDScript.</p><div class="pdiv"></div><div class="psec">Web Development</div><p>\ud83c\udf10 Responsive websites, landing pages &amp; interactive tools using HTML, CSS &amp; JavaScript.</p><div class="pdiv"></div><div class="psec">Mobile</div><p>\ud83d\udcf1 Flutter / Dart Android apps on the Play Store.</p><div class="pdiv"></div><div class="psec">Content Creation</div><p>\ud83d\udcfa Gaming videos on <a href="https://youtube.com/@abenigaming" target="_blank">YouTube @abenigaming</a>.</p>'},
+  tools:{title:'Dev Tools',html:'<div class="psec">Editors &amp; IDEs</div><div><span class="tag">VS Code</span><span class="tag">Godot Editor</span><span class="tag">Android Studio</span></div><div class="psec">Version Control</div><div><span class="tag">Git</span><span class="tag">GitHub</span></div><div class="psec">Design</div><div><span class="tag">Figma</span><span class="tag">Canva</span></div><div class="psec">Backend &amp; Other</div><div><span class="tag">Firebase</span><span class="tag">Postman</span><span class="tag">Terminal</span></div>'},
+  tictactoe:{title:'Tic Tac Toe',html:'<p id="ttt-msg" style="text-align:center;margin-bottom:16px;font-size:13px;color:rgba(255,255,255,.45);font-weight:500">X\'s turn</p><div id="ttt" style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:216px;margin:0 auto"></div><button onclick="window.resetTTT()" style="display:block;margin:16px auto 0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8);padding:9px 30px;border-radius:12px;cursor:pointer;font-size:12.5px;font-family:inherit;font-weight:500;letter-spacing:.02em;">New Game</button>'},
+  snake:{title:'Snake Game',html:'\ud83d\udc0d<br><br><a href="https://abeni.itch.io/" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(0,200,100,.09);border:1px solid rgba(0,200,100,.2);color:#4dff9a;padding:14px;border-radius:14px;font-weight:600;font-size:13.5px;text-decoration:none;">\ud83c\udfae\u00a0Play on itch.io \u2192</a>'}
 };
 
-/* ── Panel open / close ── */
-const overlay  = document.getElementById('overlay');
-const panel    = document.getElementById('panel');
-const closeBtn = document.getElementById('closeBtn');
+/* Panel open/close */
+var overlay=document.getElementById('overlay');
+var panel=document.getElementById('panel');
+var closeBtn=document.getElementById('closeBtn');
 
 function openPanel(key){
-  const d=panels[key]; if(!d) return;
-  document.getElementById('panelTitle').textContent = d.title;
-  document.getElementById('panelBody').innerHTML    = d.html;
+  var d=panels[key]; if(!d) return;
+  document.getElementById('panelTitle').textContent=d.title;
+  document.getElementById('panelBody').innerHTML=d.html;
   panel.classList.add('show');
   overlay.classList.add('show');
+  panel.scrollTop=0;
   if(key==='tictactoe') initTTT();
 }
 function closePanel(){
@@ -885,69 +377,50 @@ function closePanel(){
   overlay.classList.remove('show');
 }
 
-document.getElementById('appGrid').addEventListener('click', e=>{
-  const a = e.target.closest('.app'); if(!a) return;
-  if(a.getAttribute('target')) return;   // external links open normally
-  e.preventDefault();
-  if(a.dataset.app) openPanel(a.dataset.app);
+/* UNIFIED click handler — covers ALL grids + overlay + close */
+document.querySelector('.phone-inner').addEventListener('click',function(e){
+  if(e.target.closest('#closeBtn')){closePanel();return;}
+  if(e.target===overlay||e.target.closest('.panel-overlay')){closePanel();return;}
+  var app=e.target.closest('[data-app]');
+  if(app){e.preventDefault();openPanel(app.getAttribute('data-app'));}
 });
 
-/* also handle games grid (second grid) */
-document.querySelectorAll('.grid').forEach(g=>{
-  g.addEventListener('click', e=>{
-    const a = e.target.closest('.app'); if(!a) return;
-    if(a.getAttribute('target')) return;
-    e.preventDefault();
-    if(a.dataset.app) openPanel(a.dataset.app);
-  });
-});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel();});
 
-closeBtn.addEventListener('click', closePanel);
-overlay.addEventListener('click', closePanel);
-document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePanel(); });
-
-/* ── Tic Tac Toe ── */
-let board, turn, over;
-
+/* Tic Tac Toe */
+var board,turn,over;
 function initTTT(){
-  board=Array(9).fill(''); turn='X'; over=false;
-  const g=document.getElementById('ttt'); if(!g) return;
+  board=['','','','','','','','',''];turn='X';over=false;
+  var g=document.getElementById('ttt'); if(!g)return;
   g.innerHTML='';
-  for(let i=0;i<9;i++){
-    const c=document.createElement('div');
-    c.style.cssText=
-      'height:66px;'
-      +'background:rgba(255,255,255,.06);'
-      +'border:1px solid rgba(255,255,255,.08);'
-      +'border-radius:12px;'
-      +'display:flex;align-items:center;justify-content:center;'
-      +'font-size:30px;font-weight:800;cursor:pointer;'
-      +'transition:background .1s,transform .08s;';
-    c.onmouseenter=()=>{ if(!board[i]&&!over) c.style.background='rgba(255,255,255,.1)'; };
-    c.onmouseleave=()=>{ if(!board[i]) c.style.background='rgba(255,255,255,.06)'; };
-    c.onclick=()=>tttClick(i,c);
-    g.appendChild(c);
+  for(var i=0;i<9;i++){
+    (function(idx){
+      var c=document.createElement('div');
+      c.style.cssText='height:66px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;cursor:pointer;transition:background .1s;';
+      c.addEventListener('mouseenter',function(){if(!board[idx]&&!over)c.style.background='rgba(255,255,255,.11)';});
+      c.addEventListener('mouseleave',function(){if(!board[idx])c.style.background='rgba(255,255,255,.06)';});
+      c.addEventListener('click',function(){tttClick(idx,c);});
+      g.appendChild(c);
+    })(i);
   }
-  const m=document.getElementById('ttt-msg');
-  if(m) m.textContent="X's turn";
+  var m=document.getElementById('ttt-msg');if(m)m.textContent="X's turn";
 }
-
 function tttClick(i,c){
-  if(over||board[i]) return;
-  board[i]=turn; c.textContent=turn;
-  c.style.color  = turn==='X' ? '#FF5722' : '#2196F3';
-  c.style.background = turn==='X'
-    ? 'rgba(255,87,34,.12)' : 'rgba(33,150,243,.12)';
-  const w=checkWin();
-  const m=document.getElementById('ttt-msg');
-  if(w){ over=true; if(m) m.textContent=`${w} wins! 🎉`; }
-  else if(!board.includes('')){ over=true; if(m) m.textContent='Draw! 🤝'; }
-  else{
-    turn=turn==='X'?'O':'X';
-    if(m) m.textContent=`${turn}'s turn`;
-  }
+  if(over||board[i])return;
+  board[i]=turn;c.textContent=turn;
+  c.style.color=turn==='X'?'#FF5722':'#2196F3';
+  c.style.background=turn==='X'?'rgba(255,87,34,.12)':'rgba(33,150,243,.12)';
+  var w=checkWin(),m=document.getElementById('ttt-msg');
+  if(w){over=true;if(m)m.textContent=w+' wins! \ud83c\udf89';}
+  else if(board.indexOf('')===-1){over=true;if(m)m.textContent='Draw! \ud83e\udd1d';}
+  else{turn=turn==='X'?'O':'X';if(m)m.textContent=turn+"'s turn";}
 }
-
 function checkWin(){
-  for(const[a,b,c] of
-    [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4
+  var L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  for(var i=0;i<L.length;i++){var a=L[i][0],b=L[i][1],c=L[i][2];if(board[a]&&board[a]===board[b]&&board[a]===board[c])return board[a];}
+  return null;
+}
+window.resetTTT=initTTT;
+</script>
+</body>
+</html>
