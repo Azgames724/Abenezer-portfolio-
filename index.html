@@ -8,78 +8,56 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-:root{
-  --bg:#000;--bg2:#040710;--bg3:#0a0f1e;
-  --surface:rgba(255,255,255,.05);--border:rgba(255,255,255,.08);
-  --text:#fff;--text2:rgba(255,255,255,.85);--text3:rgba(255,255,255,.6);
-  --accent:#60c8ff;--accent2:#2196F3;
-  --eth-g:#00a651;--eth-y:#ffc72c;--eth-r:#ed1c24;
-  --radius:14px;
-}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-font-smoothing:antialiased}
+:root{--bg:#000;--bg2:#040710;--surface:rgba(255,255,255,.05);--border:rgba(255,255,255,.08);--text:#fff;--text2:rgba(255,255,255,.85);--text3:rgba(255,255,255,.6);--accent:#60c8ff;--accent2:#2196F3}
 html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;display:flex;align-items:center;justify-content:center;overflow:hidden}
 
-/* SPACE BG */
 .space{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 100% 60% at 50% 0%,#04102a 0%,#000 65%)}
-.star{position:absolute;border-radius:50%;background:#fff;will-change:opacity}
+.star{position:absolute;border-radius:50%;background:#fff}
 .bg-shoot{position:absolute;width:220px;height:1.5px;background:linear-gradient(90deg,rgba(96,200,255,.9),transparent);top:20%;left:-240px;transform:rotate(-14deg);filter:blur(.4px);animation:shoot1 16s linear infinite}
 @keyframes shoot1{0%{left:-240px;opacity:0}3%{opacity:1}48%{left:110vw;opacity:0}100%{opacity:0}}
 @keyframes blink{0%,100%{opacity:.1}50%{opacity:1}}
 @keyframes glow{0%,100%{opacity:.4;transform:scale(.98)}50%{opacity:1;transform:scale(1.02)}}
 
-/* PHONE */
 .wrap{position:relative;z-index:2}
 .phone-glow{position:absolute;inset:-50px;border-radius:100px;background:radial-gradient(ellipse at 50% 50%,rgba(96,200,255,.12),transparent 70%);pointer-events:none;z-index:-1;animation:glow 6s ease-in-out infinite}
-.phone{
-  width:320px;height:660px;position:relative;border-radius:54px;
-  background:linear-gradient(148deg,#ddedf8 0%,#b2cfe3 6%,#7bafc9 15%,#4e8dbb 27%,#3876ad 43%,#4e8dbb 58%,#7bafc9 73%,#b2cfe3 88%,#d8eaf5 100%);
-  padding:4px;
-  box-shadow:0 0 0 1px rgba(255,255,255,.28),0 0 0 2.5px rgba(0,0,0,.3),0 60px 120px rgba(0,0,0,.9),0 24px 48px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.3)
-}
-.btn-power{position:absolute;right:-5.5px;top:160px;width:5.5px;height:70px;border-radius:0 5px 5px 0;background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);box-shadow:2px 1px 6px rgba(0,0,0,.5),inset -1px 0 0 rgba(255,255,255,.4)}
-.btn-vol{position:absolute;left:-5.5px;width:5.5px;height:44px;border-radius:5px 0 0 5px;background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);box-shadow:-2px 1px 6px rgba(0,0,0,.5),inset 1px 0 0 rgba(255,255,255,.4)}
+.phone{width:320px;height:660px;position:relative;border-radius:54px;background:linear-gradient(148deg,#ddedf8 0%,#b2cfe3 6%,#7bafc9 15%,#4e8dbb 27%,#3876ad 43%,#4e8dbb 58%,#7bafc9 73%,#b2cfe3 88%,#d8eaf5 100%);padding:4px;box-shadow:0 0 0 1px rgba(255,255,255,.28),0 0 0 2.5px rgba(0,0,0,.3),0 60px 120px rgba(0,0,0,.9),0 24px 48px rgba(0,0,0,.55),inset 0 2px 0 rgba(255,255,255,.5),inset 0 -1px 0 rgba(0,0,0,.3)}
+.btn-power{position:absolute;right:-5.5px;top:160px;width:5.5px;height:70px;border-radius:0 5px 5px 0;background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);box-shadow:2px 1px 6px rgba(0,0,0,.5)}
+.btn-vol{position:absolute;left:-5.5px;width:5.5px;height:44px;border-radius:5px 0 0 5px;background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);box-shadow:-2px 1px 6px rgba(0,0,0,.5)}
 .btn-vol.up{top:140px}
 .btn-vol.down{top:195px}
-.btn-mute{position:absolute;left:-5.5px;top:104px;width:5.5px;height:26px;border-radius:5px 0 0 5px;background:linear-gradient(180deg,#c8dff0,#84b4cc,#c8dff0);box-shadow:-2px 1px 5px rgba(0,0,0,.45)}
 
 .phone-inner{width:100%;height:100%;border-radius:50px;background:var(--bg2);overflow:hidden;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.05),inset 0 3px 12px rgba(0,0,0,.85)}
 
-/* NOTCH */
 .notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:124px;height:34px;background:#000;border-radius:0 0 22px 22px;z-index:20;box-shadow:0 6px 20px rgba(0,0,0,.98)}
 .notch::before{content:'';position:absolute;top:11px;left:50%;transform:translateX(-50%);width:36px;height:4px;border-radius:2px;background:#141414}
-.notch::after{content:'';position:absolute;top:50%;right:20px;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#232323,#050505);box-shadow:0 0 0 1.5px #141414}
+.notch::after{content:'';position:absolute;top:50%;right:20px;transform:translateY(-50%);width:11px;height:11px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#232323,#050505)}
 
-/* STATUS BAR */
 .status-bar{position:absolute;top:0;left:0;right:0;height:42px;z-index:19;display:flex;align-items:flex-end;justify-content:space-between;padding:0 22px 7px}
-.s-time{font-size:13.5px;font-weight:700;color:#fff;letter-spacing:-.02em;font-family:'Space Mono',monospace}
+.s-time{font-size:13.5px;font-weight:700;color:#fff;font-family:'Space Mono',monospace}
 .s-icons{display:flex;align-items:center;gap:5px}
 .batt{width:22px;height:11px;border:1.5px solid rgba(255,255,255,.7);border-radius:3.5px;position:relative;overflow:hidden}
 .batt::after{content:'';position:absolute;right:-4.5px;top:50%;transform:translateY(-50%);width:2.5px;height:5px;background:rgba(255,255,255,.5);border-radius:0 2px 2px 0}
 .batt-fill{height:100%;width:72%;background:#34e55a}
 
-/* SCREEN */
-.screen{position:absolute;top:0;left:0;right:0;bottom:82px;padding:46px 16px 16px;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none;background:radial-gradient(ellipse 140% 50% at 50% 0%,#050e24 0%,#010207 52%,#000 100%)}
+.screen{position:absolute;top:0;left:0;right:0;bottom:82px;padding:46px 16px 16px;overflow-y:auto;overflow-x:hidden;scrollbar-width:none;background:radial-gradient(ellipse 140% 50% at 50% 0%,#050e24 0%,#010207 52%,#000 100%)}
 .screen::-webkit-scrollbar{display:none}
 .screen-stars{position:absolute;inset:0;pointer-events:none;z-index:0}
 .scr-star{position:absolute;border-radius:50%;background:#fff}
 .scr-shoot{position:absolute;width:68px;height:1px;background:linear-gradient(90deg,rgba(96,200,255,.9),transparent);top:70%;left:-80px;transform:rotate(-18deg);animation:shoot2 12s linear infinite 5s;z-index:1}
 @keyframes shoot2{0%{left:-80px;opacity:0}5%{opacity:1}55%{left:110%;opacity:0}100%{opacity:0}}
 
-/* PROFILE */
 .profile{display:flex;flex-direction:column;align-items:center;padding:8px 0 18px;position:relative;z-index:2}
-.avatar{width:78px;height:78px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;border:2.5px solid rgba(255,255,255,.2);box-shadow:0 8px 28px rgba(0,0,0,.7),0 0 0 5px rgba(96,200,255,.08);margin-bottom:12px;overflow:hidden}
-.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 20%;border-radius:50%}
+.avatar{width:78px;height:78px;border-radius:50%;background:#0a0f1e;display:flex;align-items:center;justify-content:center;border:2.5px solid rgba(255,255,255,.2);box-shadow:0 8px 28px rgba(0,0,0,.7),0 0 0 5px rgba(96,200,255,.08);margin-bottom:12px;overflow:hidden}
+.avatar img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .profile-name{font-size:17px;font-weight:700;letter-spacing:-.02em;margin-bottom:4px}
 .profile-role{font-size:10.5px;font-weight:500;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase}
 
-/* SECTION */
 .section{font-size:9.5px;font-weight:600;color:rgba(255,255,255,.25);letter-spacing:.12em;text-transform:uppercase;margin:0 0 12px;position:relative;z-index:2}
 
-/* GRID */
 .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 0;justify-items:center;padding:0;position:relative;z-index:2;margin-bottom:4px}
 
-/* APP */
-.app{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;width:64px;transition:transform .1s}
+.app{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--text);cursor:pointer;user-select:none;width:64px;transition:transform .1s}
 .app:active{transform:scale(.95)}
 
 .icon{width:54px;height:54px;border-radius:13px;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;transition:transform .14s cubic-bezier(.2,.9,.2,1),box-shadow .14s;box-shadow:0 4px 10px rgba(0,0,0,.5),0 1px 3px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.22),inset 0 -1px 0 rgba(0,0,0,.25)}
@@ -87,21 +65,18 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
 .icon img{width:100%;height:100%;object-fit:cover;position:relative;z-index:2}
 .icon-txt{width:100%;height:100%;position:relative;z-index:2;display:flex;align-items:center;justify-content:center}
 .app:hover .icon{transform:scale(1.08);box-shadow:0 12px 28px rgba(0,0,0,.65)}
-.app:active .icon{transform:scale(.82);box-shadow:0 2px 5px rgba(0,0,0,.5)}
+.app:active .icon{transform:scale(.82)}
 
 .app-label{margin-top:6px;font-size:9.5px;font-weight:400;color:rgba(255,255,255,.85);text-align:center;width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-shadow:0 1px 5px rgba(0,0,0,.9)}
 
-/* FOOTER */
 .built{display:flex;align-items:center;justify-content:center;gap:4px;margin:22px 0 2px;color:rgba(255,255,255,.35);font-size:10px;position:relative;z-index:2}
 
-/* DOCK */
-.dock{position:absolute;bottom:0;left:0;right:0;height:82px;background:rgba(10,16,34,.92);backdrop-filter:blur(30px) saturate(180%);-webkit-backdrop-filter:blur(30px) saturate(180%);border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-around;padding:0 20px 20px;z-index:15}
+.dock{position:absolute;bottom:0;left:0;right:0;height:82px;background:rgba(10,16,34,.92);backdrop-filter:blur(30px);border-top:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:space-around;padding:0 20px 20px;z-index:15}
 .dock .icon{width:50px;height:50px}
 .dock .app-label{font-size:9px}
 .home-bar{position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:104px;height:4px;background:rgba(255,255,255,.28);border-radius:2px;z-index:16}
 
-/* PANEL */
-.panel-overlay{position:absolute;inset:0;border-radius:50px;background:rgba(0,0,0,.7);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .3s;z-index:25}
+.panel-overlay{position:absolute;inset:0;border-radius:50px;background:rgba(0,0,0,.7);backdrop-filter:blur(14px);opacity:0;visibility:hidden;transition:opacity .3s;z-index:25}
 .panel-overlay.show{opacity:1;visibility:visible}
 
 .panel{position:absolute;bottom:0;left:0;right:0;max-height:85%;background:linear-gradient(172deg,#141e33 0%,#0b1121 100%);border:1px solid rgba(255,255,255,.08);border-radius:28px 28px 50px 50px;padding:0 20px 32px;opacity:0;visibility:hidden;z-index:26;transform:translateY(110%);transition:transform .4s cubic-bezier(.14,.9,.2,1),opacity .3s,visibility 0s .4s;overflow-y:auto;scrollbar-width:none;box-shadow:0 -32px 90px rgba(0,0,0,.85)}
@@ -111,7 +86,7 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
 .p-handle{width:36px;height:4px;background:rgba(255,255,255,.18);border-radius:2px;margin:13px auto 18px}
 .p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
 .p-head h2{font-size:18px;font-weight:700;letter-spacing:-.025em}
-.close-btn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s,transform .1s}
+.close-btn{width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .15s}
 .close-btn:hover{background:rgba(255,255,255,.2)}
 .close-btn:active{transform:scale(.9)}
 
@@ -126,23 +101,22 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
 
 .tag{display:inline-flex;align-items:center;padding:5px 12px;border-radius:20px;background:rgba(255,255,255,.07);font-size:11.5px;margin:3px;color:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.08)}
 
-.lc{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:13px 14px;margin-bottom:9px;text-decoration:none;color:inherit;transition:background .18s,border-color .18s,transform .12s}
+.lc{display:flex;align-items:center;gap:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:13px 14px;margin-bottom:9px;text-decoration:none;color:inherit;transition:background .18s,border-color .18s}
 .lc:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.14)}
 .lc:active{transform:scale(.98)}
 .lc-ico{width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
 .lc-info{flex:1;min-width:0}
-.lc-info h3{font-size:13.5px;font-weight:600;color:#fff;margin-bottom:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lc-info p{font-size:11.5px;color:rgba(255,255,255,.4);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.lc-arr{color:rgba(255,255,255,.2);font-size:20px;font-weight:300}
+.lc-info h3{font-size:13.5px;font-weight:600;color:#fff;margin-bottom:2px}
+.lc-info p{font-size:11.5px;color:rgba(255,255,255,.4)}
+.lc-arr{color:rgba(255,255,255,.2);font-size:20px}
 
-.pdiv{height:1px;background:rgba(255,255,255,.06);margin:16px 0;border-radius:1px}
+.pdiv{height:1px;background:rgba(255,255,255,.06);margin:16px 0}
 
-/* SKILL BAR */
 .skill{margin-bottom:14px}
 .skill-name{font-size:12.5px;font-weight:500;color:rgba(255,255,255,.8);margin-bottom:6px;display:flex;justify-content:space-between}
 .skill-name span{color:rgba(255,255,255,.4);font-size:11px}
 .skill-bar{height:6px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
-.skill-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:3px;transition:width .6s cubic-bezier(.14,.9,.2,1)}
+.skill-fill{height:100%;background:linear-gradient(90deg,var(--accent2),var(--accent));border-radius:3px}
 </style>
 </head>
 <body>
@@ -152,7 +126,6 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
 <div class="wrap">
   <div class="phone-glow"></div>
   <div class="phone">
-    <div class="btn-mute"></div>
     <div class="btn-vol up"></div>
     <div class="btn-vol down"></div>
     <div class="btn-power"></div>
@@ -175,10 +148,10 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
 
         <div class="profile">
           <div class="avatar">
-            <img src="https://raw.githubusercontent.com/Azgames724/Abenezer-portfolio-/main/file_00000000a6107209bab03970637aecc5.png" alt="Abenezer" onerror="this.style.display='none'">
+            <img src="https://raw.githubusercontent.com/Azgames724/Abenezer-portfolio-/main/file_00000000a6107209bab03970637aecc5.png" alt="Abenezer">
           </div>
           <div class="profile-name">Abenezer Shiferaw</div>
-          <div class="profile-role">Game Dev \u2022 Web Designer \u2022 Ethiopia</div>
+          <div class="profile-role">Game Dev • Web Designer • Ethiopia</div>
         </div>
 
         <div class="section">Portfolio</div>
@@ -191,7 +164,7 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
             <div class="icon"><img src="https://img.icons8.com/fluency/96/idea.png" alt=""></div>
             <div class="app-label">Skills</div>
           </div>
-          <a class="app" href="https://abeni.itch.io/" target="_blank" rel="noopener">
+          <a class="app" href="https://abeni.itch.io/" target="_blank">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/grid.png" alt=""></div>
             <div class="app-label">Projects</div>
           </a>
@@ -202,28 +175,26 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
 
           <div class="app" data-app="tools">
             <div class="icon" style="background:#1565C0">
-              <div class="icon-txt" style="color:#fff;font-size:18px;font-weight:800;letter-spacing:-.06em">&lt;/&gt;</div>
+              <div class="icon-txt" style="color:#fff;font-size:18px;font-weight:800">&lt;/&gt;</div>
             </div>
             <div class="app-label">Tools</div>
           </div>
-          <a class="app" href="https://et.linkedin.com/in/abenezer-shiferaw-0565ba216" target="_blank" rel="noopener">
+          <a class="app" href="https://et.linkedin.com/in/abenezer-shiferaw-0565ba216" target="_blank">
             <div class="icon" style="background:#0077B5"><img src="https://img.icons8.com/fluency/96/linkedin.png" alt=""></div>
             <div class="app-label">LinkedIn</div>
           </a>
-          <a class="app" href="https://instagram.com/abeni_xxi" target="_blank" rel="noopener">
+          <a class="app" href="https://instagram.com/abeni_xxi" target="_blank">
             <div class="icon">
-              <div class="icon-txt" style="background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);width:100%;height:100%;border-radius:13px">
-                <svg width="27" height="27" viewBox="0 0 24 24" fill="white" style="position:relative;z-index:2"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-              </div>
+              <div class="icon-txt" style="background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);width:100%;height:100%;border-radius:13px"><svg width="27" height="27" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
             </div>
             <div class="app-label">Instagram</div>
           </a>
-          <a class="app" href="https://t.me/abeni501" target="_blank" rel="noopener">
+          <a class="app" href="https://t.me/abeni501" target="_blank">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/telegram-app.png" alt=""></div>
             <div class="app-label">Telegram</div>
           </a>
 
-          <a class="app" href="https://youtube.com/@abenigaming" target="_blank" rel="noopener">
+          <a class="app" href="https://youtube.com/@abenigaming" target="_blank">
             <div class="icon"><img src="https://img.icons8.com/fluency/96/youtube-play.png" alt=""></div>
             <div class="app-label">YouTube</div>
           </a>
@@ -231,13 +202,13 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
             <div class="icon"><img src="https://img.icons8.com/fluency/96/gmail.png" alt=""></div>
             <div class="app-label">Gmail</div>
           </a>
-          <a class="app" href="https://azgames724.github.io/Beza-/" target="_blank" rel="noopener">
+          <a class="app" href="https://azgames724.github.io/Beza-/" target="_blank">
             <div class="icon" style="background:linear-gradient(135deg,#667eea 0%,#764ba2 100%)">
               <div class="icon-txt" style="color:#fff;font-size:22px;font-weight:700">Bz</div>
             </div>
             <div class="app-label">Beza Site</div>
           </a>
-          <a class="app" href="https://github.com/Azgames724" target="_blank" rel="noopener">
+          <a class="app" href="https://github.com/Azgames724" target="_blank">
             <div class="icon" style="background:#0d1117;border:1px solid rgba(255,255,255,.15)">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             </div>
@@ -271,30 +242,28 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
 
         <div class="built">
           <span>Built with</span>
-          <span style="color:#54C5F8;font-size:12px">\u26a1</span>
+          <span style="color:#54C5F8;font-size:12px">⚡</span>
           <span>using</span>
-          <span style="color:#2196F3;font-size:12px">\ud83d\udc99</span>
+          <span style="color:#2196F3;font-size:12px">💙</span>
         </div>
       </div>
 
       <div class="dock">
-        <a class="app" href="https://abeni.itch.io/" target="_blank" rel="noopener">
+        <a class="app" href="https://abeni.itch.io/" target="_blank">
           <div class="icon"><img src="https://img.icons8.com/fluency/96/game-controller.png" alt=""></div>
           <div class="app-label">Games</div>
         </a>
-        <a class="app" href="https://t.me/abeni501" target="_blank" rel="noopener">
+        <a class="app" href="https://t.me/abeni501" target="_blank">
           <div class="icon"><img src="https://img.icons8.com/fluency/96/telegram-app.png" alt=""></div>
           <div class="app-label">Telegram</div>
         </a>
-        <a class="app" href="https://instagram.com/abeni_xxi" target="_blank" rel="noopener">
+        <a class="app" href="https://instagram.com/abeni_xxi" target="_blank">
           <div class="icon">
-            <div class="icon-txt" style="background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);width:100%;height:100%;border-radius:13px">
-              <svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-            </div>
+            <div class="icon-txt" style="background:linear-gradient(45deg,#f09433,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888);width:100%;height:100%;border-radius:13px"><svg width="25" height="25" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.40s-.644-1.44-1.439-1.44z"/></svg></div>
           </div>
           <div class="app-label">Instagram</div>
         </a>
-        <a class="app" href="https://youtube.com/@abenigaming" target="_blank" rel="noopener">
+        <a class="app" href="https://youtube.com/@abenigaming" target="_blank">
           <div class="icon"><img src="https://img.icons8.com/fluency/96/youtube-play.png" alt=""></div>
           <div class="app-label">YouTube</div>
         </a>
@@ -306,7 +275,7 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
         <div class="p-handle"></div>
         <div class="p-head">
           <h2 id="panelTitle"></h2>
-          <button class="close-btn" id="closeBtn" aria-label="Close">
+          <button class="close-btn" id="closeBtn">
             <svg width="11" height="11" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/></svg>
           </button>
         </div>
@@ -318,9 +287,87 @@ html,body{height:100%;min-height:100vh;background:var(--bg);color:var(--text);fo
 </div>
 
 <script>
-// Clock
 function tick(){var n=new Date(),h=n.getHours(),m=n.getMinutes();var el=document.getElementById('sTime');if(el)el.textContent=h+':'+(m<10?'0':'')+m}
 tick();setInterval(tick,20000);
 
-// BG stars
-(function(){var bg=document.getElementById('bgSpace');for(var i=0;i<240;i++){var s=document.createElement('div');s.className='star';var z=(Math.random()*2.8+.3).toFixed(1);s.style.cssText='width:'+z+'px;height:'+z+'px;left:'+(Math.random()*100).toFixed(2)+'%;top:'+(Math.random()*100).toFixed(2)+'%;opacity:'+(0.08+Math.random()*0.92).toFixed(2);if(Math.random()>.5)s.style.animation='blink '+(2+Math.random()*6).toFixed(1)+'s ease-in-out '+(Math.random()*8).toFixed(1)+'s
+(function(){var bg=document.getElementById('bgSpace');for(var i=0;i<240;i++){var s=document.createElement('div');s.className='star';var z=(Math.random()*2.8+.3).toFixed(1);s.style.cssText='width:'+z+'px;height:'+z+'px;left:'+(Math.random()*100).toFixed(2)+'%;top:'+(Math.random()*100).toFixed(2)+'%;opacity:'+(0.08+Math.random()*0.92).toFixed(2);if(Math.random()>.5)s.style.animation='blink '+(2+Math.random()*6).toFixed(1)+'s ease-in-out '+(Math.random()*8).toFixed(1)+'s infinite';bg.appendChild(s)}})();
+
+(function(){var sc=document.getElementById('scStars');for(var i=0;i<100;i++){var s=document.createElement('div');s.className='scr-star';var z=(Math.random()*2+.25).toFixed(1);s.style.cssText='width:'+z+'px;height:'+z+'px;left:'+(Math.random()*100).toFixed(2)+'%;top:'+(Math.random()*100).toFixed(2)+'%;opacity:'+(0.06+Math.random()*0.75).toFixed(2);if(Math.random()>.38)s.style.animation='blink '+(1.8+Math.random()*5).toFixed(1)+'s ease-in-out '+(Math.random()*6).toFixed(1)+'s infinite';sc.appendChild(s)}})();
+
+var panels={
+  about:{title:'About Me',html:'<p>Hi! I\'m <strong>Abenezer Shiferaw</strong> — a passionate <strong>Game Developer</strong> & <strong>Web Designer</strong> from Ethiopia 🇪🇹.</p><p>I create interactive experiences through code, from mobile games to responsive websites.</p><div class="pdiv"></div><div class="psec">Contact</div><a class="lc" href="mailto:abeniship13@gmail.com"><div class="lc-ico" style="background:rgba(234,67,53,.14)">📧</div><div class="lc-info"><h3>Email</h3><p>abeniship13@gmail.com</p></div><span class="lc-arr">›</span></a><a class="lc" href="https://t.me/abeni501" target="_blank"><div class="lc-ico" style="background:rgba(42,171,238,.14)">✈️</div><div class="lc-info"><h3>Telegram</h3><p>@abeni501</p></div><span class="lc-arr">›</span></a><a class="lc" href="https://instagram.com/abeni_xxi" target="_blank"><div class="lc-ico" style="background:rgba(220,39,67,.13)">📸</div><div class="lc-info"><h3>Instagram</h3><p>@abeni_xxi</p></div><span class="lc-arr">›</span></a><a class="lc" href="https://youtube.com/@abenigaming" target="_blank"><div class="lc-ico" style="background:rgba(255,0,0,.11)">📺</div><div class="lc-info"><h3>YouTube</h3><p>@abenigaming</p></div><span class="lc-arr">›</span></a><a class="lc" href="https://et.linkedin.com/in/abenezer-shiferaw-0565ba216" target="_blank"><div class="lc-ico" style="background:rgba(0,119,181,.14)">💼</div><div class="lc-info"><h3>LinkedIn</h3><p>Abenezer Shiferaw</p></div><span class="lc-arr">›</span></a><div class="pdiv"></div><div class="psec">Projects</div><a class="lc" href="https://abeni.itch.io/" target="_blank"><div class="lc-ico" style="background:rgba(255,80,80,.11)">🎮</div><div class="lc-info"><h3>itch.io Games</h3><p>abeni.itch.io</p></div><span class="lc-arr">›</span></a><a class="lc" href="https://azgames724.github.io/Beza-/" target="_blank"><div class="lc-ico" style="background:rgba(102,126,234,.14)">🌐</div><div class="lc-info"><h3>Beza Website</h3><p>Recent project</p></div><span class="lc-arr">›</span></a><a class="lc" href="https://github.com/Azgames724" target="_blank"><div class="lc-ico" style="background:rgba(13,17,23,.4);border:1px solid rgba(255,255,255,.1)">💻</div><div class="lc-info"><h3>GitHub</h3><p>@Azgames724</p></div><span class="lc-arr">›</span></a>'},
+  skills:{title:'Skills',html:'<div class="psec">Programming Languages</div><div class="skill"><div class="skill-name">Python<span>85%</span></div><div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div></div><div class="skill"><div class="skill-name">GDScript<span>90%</span></div><div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div></div><div class="skill"><div class="skill-name">HTML/CSS<span>95%</span></div><div class="skill-bar"><div class="skill-fill" style="width:95%"></div></div></div><div class="skill"><div class="skill-name">JavaScript<span>80%</span></div><div class="skill-bar"><div class="skill-fill" style="width:80%"></div></div></div><div class="skill"><div class="skill-name">Dart<span>75%</span></div><div class="skill-bar"><div class="skill-fill" style="width:75%"></div></div></div><div class="pdiv"></div><div class="psec">Frameworks & Tools</div><div><span class="tag">Flutter</span><span class="tag">Godot 4</span><span class="tag">VS Code</span><span class="tag">Git/GitHub</span><span class="tag">Figma</span><span class="tag">Firebase</span><span class="tag">Android Studio</span><span class="tag">Canva</span></div>'},
+  experience:{title:'Experience',html:'<div class="psec">Game Development</div><p>🎮 Published indie games on <a href="https://abeni.itch.io/" target="_blank">itch.io</a> using Godot Engine & GDScript. Created racing, platformers, and rhythm games.</p><div class="pdiv"></div><div class="psec">Web Development</div><p>🌐 Built responsive websites and interactive web apps. Recent project: <a href="https://azgames724.github.io/Beza-/" target="_blank">Beza website</a>.</p><div class="pdiv"></div><div class="psec">Mobile Development</div><p>📱 Created Android apps using Flutter/Dart framework, available on Play Store.</p><div class="pdiv"></div><div class="psec">Content Creation</div><p>📺 Gaming content creator on <a href="https://youtube.com/@abenigaming" target="_blank">YouTube</a> sharing tutorials and gameplay.</p>'},
+  tools:{title:'Dev Tools',html:'<div class="psec">Editors & IDEs</div><div><span class="tag">VS Code</span><span class="tag">Godot Editor</span><span class="tag">Android Studio</span></div><div class="psec">Version Control</div><div><span class="tag">Git</span><span class="tag">GitHub</span></div><div class="psec">Design Tools</div><div><span class="tag">Figma</span><span class="tag">Canva</span><span class="tag">Photoshop</span></div><div class="psec">Backend & Services</div><div><span class="tag">Firebase</span><span class="tag">Postman</span><span class="tag">Node.js</span></div>'},
+  tictactoe:{title:'Tic Tac Toe',html:'<p id="ttt-msg" style="text-align:center;margin-bottom:16px;font-size:13px;color:rgba(255,255,255,.5);font-weight:500">X\'s turn</p><div id="ttt" style="display:grid;grid-template-columns:repeat(3,1fr);gap:9px;max-width:216px;margin:0 auto"></div><button onclick="window.resetTTT()" style="display:block;margin:16px auto 0;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.8);padding:9px 30px;border-radius:12px;cursor:pointer;font-size:12.5px;font-family:inherit;font-weight:500">New Game</button>'},
+  snake:{title:'Snake Game',html:'<p style="text-align:center;font-size:48px;margin:20px 0">🐍</p><a href="https://abeni.itch.io/" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:rgba(0,200,100,.09);border:1px solid rgba(0,200,100,.2);color:#4dff9a;padding:14px;border-radius:14px;font-weight:600;font-size:13.5px;text-decoration:none;margin-top:10px">🎮 Play on itch.io →</a>'}
+};
+
+var overlay=document.getElementById('overlay');
+var panel=document.getElementById('panel');
+var closeBtn=document.getElementById('closeBtn');
+
+function openPanel(key){
+  var d=panels[key];if(!d)return;
+  document.getElementById('panelTitle').textContent=d.title;
+  document.getElementById('panelBody').innerHTML=d.html;
+  panel.classList.add('show');
+  overlay.classList.add('show');
+  panel.scrollTop=0;
+  if(key==='tictactoe')initTTT();
+}
+
+function closePanel(){
+  panel.classList.remove('show');
+  overlay.classList.remove('show');
+}
+
+document.querySelector('.phone-inner').addEventListener('click',function(e){
+  if(e.target.closest('#closeBtn')){closePanel();return}
+  if(e.target===overlay){closePanel();return}
+  var app=e.target.closest('[data-app]');
+  if(app){e.preventDefault();openPanel(app.getAttribute('data-app'))}
+});
+
+closeBtn.addEventListener('click',closePanel);
+overlay.addEventListener('click',closePanel);
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePanel()});
+
+var board,turn,over;
+function initTTT(){
+  board=['','','','','','','','',''];turn='X';over=false;
+  var g=document.getElementById('ttt');if(!g)return;
+  g.innerHTML='';
+  for(var i=0;i<9;i++){
+    (function(idx){
+      var c=document.createElement('div');
+      c.style.cssText='height:66px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;cursor:pointer;transition:background .1s';
+      c.addEventListener('mouseenter',function(){if(!board[idx]&&!over)c.style.background='rgba(255,255,255,.11)'});
+      c.addEventListener('mouseleave',function(){if(!board[idx])c.style.background='rgba(255,255,255,.06)'});
+      c.addEventListener('click',function(){tttClick(idx,c)});
+      g.appendChild(c);
+    })(i);
+  }
+  var m=document.getElementById('ttt-msg');if(m)m.textContent="X's turn";
+}
+
+function tttClick(i,c){
+  if(over||board[i])return;
+  board[i]=turn;c.textContent=turn;
+  c.style.color=turn==='X'?'#FF5722':'#2196F3';
+  c.style.background=turn==='X'?'rgba(255,87,34,.12)':'rgba(33,150,243,.12)';
+  var w=checkWin(),m=document.getElementById('ttt-msg');
+  if(w){over=true;if(m)m.textContent=w+' wins! 🎉'}
+  else if(board.indexOf('')===-1){over=true;if(m)m.textContent='Draw! 🤝'}
+  else{turn=turn==='X'?'O':'X';if(m)m.textContent=turn+"'s turn"}
+}
+
+function checkWin(){
+  var L=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+  for(var i=0;i<L.length;i++){var a=L[i][0],b=L[i][1],c=L[i][2];if(board[a]&&board[a]===board[b]&&board[a]===board[c])return board[a]}
+  return null;
+}
+window.resetTTT=initTTT;
+</script>
+</body>
+</html>
